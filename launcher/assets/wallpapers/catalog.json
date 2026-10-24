@@ -1,0 +1,41 @@
+{
+  "wallpapers": [
+    {
+      "title": "Fast X",
+      "file": "fast-x.jpg",
+      "sourcePage": "https://www.universalpicturesathome.com/movies/fast-x",
+      "imageUrl": "https://images.contentstack.io/v3/assets/blt13adb7e2033fcee5/blt22b190151bc29c56/692d1aa74d9d86d83effe244/FASTX_keyart_mobile_3840x2160.jpg?width=1280",
+      "credit": "Universal Pictures",
+      "sha256": "6d23aea149a6fd93761921e682bd3615c09c42aadf0758bfb38ee65b0f923200",
+      "bytes": 151872
+    },
+    {
+      "title": "Avengers: Endgame",
+      "file": "avengers.jpg",
+      "sourcePage": "https://movies.disney.com/avengers-endgame",
+      "imageUrl": "https://lumiere-a.akamaihd.net/v1/images/g_avengersendgame_07_17734_ab55f51f.jpeg?region=0%2C0%2C1200%2C560",
+      "credit": "Marvel Studios",
+      "sha256": "4de1d17fe58dd416a7e0fe977a217680586acdaed0135ef92702760582dbe566",
+      "bytes": 144108
+    },
+    {
+      "title": "Spider-Man: Across the Spider-Verse",
+      "file": "spiderverse.jpg",
+      "sourcePage": "https://www.sonypictures.com/movies/spidermanacrossthespiderverse",
+      "imageUrl": "https://www.sonypictures.com/sites/default/files/styles/max_1300x1300/public/banner-images/2024-12/Spider-Man_Across_2572x1100_Landing_Page_Digital_BluRay_DVD_V1_1211_08.jpg?itok=dwhRNiMH",
+      "credit": "Sony Pictures / Marvel",
+      "sha256": "8a5fea35ba6e80464975d0239267e4d3015df4a819172fd27803eb35784e9418",
+      "bytes": 321241,
+      "focalX": "right"
+    },
+    {
+      "title": "Kung Fu Panda 4",
+      "file": "kung-fu-panda.jpg",
+      "sourcePage": "https://www.dreamworks.com/movies/kung-fu-panda-4",
+      "imageUrl": "https://www.dreamworks.com/storage/cms-uploads/kung-fu-panda-4-hero-image-desktop2.jpg",
+      "credit": "DreamWorks Animation / Universal Pictures",
+      "sha256": "4356e4970a88b460ff143178fbccb7b6e29f032111e75f142953194a87f467c7",
+      "bytes": 411400
+    }
+  ]
+}

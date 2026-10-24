@@ -1,0 +1,24 @@
+{
+  "profile": "product-admin",
+  "sourceRoots": [
+    "src",
+    "preview"
+  ],
+  "locale": "en",
+  "canonicalMap": "UX-CONTRACT.md",
+  "requiredCapabilities": [
+    "Toast"
+  ],
+  "ownership": {
+    "Favorites": "native"
+  },
+  "evidence": {
+    "hostChecks": "tests/check_contract.py",
+    "nativeLimits": "UX-CONTRACT.md"
+  },
+  "nativeCapabilities": [
+    "Navigation",
+    "App Launch",
+    "Favorites"
+  ]
+}

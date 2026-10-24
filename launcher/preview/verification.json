@@ -1,0 +1,24 @@
+{
+  "scope": "Desktop illustration only; not native Android runtime verification",
+  "passed": [
+    "Connected/disconnected Wi-Fi label, slash icon and settings action",
+    "Clean Home; simulated music visibility, pause/resume label, Next, hide/focus and stable app row",
+    "Home: six real installed-app icons, initial focus and 1280×720 screenshot",
+    "Arrow navigation changes focus",
+    "Pointer/mouse-wheel scrolling works on an overflowing favorite rail",
+    "Apps navigation, six installed-app icons, Back/Escape restoration",
+    "Saving zero favorites shows a usable empty state",
+    "Cancel discards favorite draft and restores trigger focus",
+    "Favorite selection and honest app-preview feedback",
+    "Settings dialog opens and Escape returns focus",
+    "Next scene changes real artwork, preserves two image slots and updates the title",
+    "Slideshow advances after 15 seconds with a fade",
+    "Pause prevents automatic wallpaper advancement",
+    "TVMaze adapter fixtures: online artwork, poster/untrusted-URL rejection, two image slots, failure retention and bundled fallback",
+    "Home arrow-key graph reaches all 15 visible controls",
+    "16:9 preview frame fits widths 1920, 960 and 640 without clipping",
+    "No browser JavaScript errors"
+  ],
+  "browser": "130.0.6723.31",
+  "timestamp": "2026-10-24T18:37:17.736Z"
+}

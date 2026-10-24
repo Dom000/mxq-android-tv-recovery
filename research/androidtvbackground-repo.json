@@ -1,0 +1,882 @@
+[
+  {
+    "name": ".devcontainer",
+    "path": ".devcontainer",
+    "sha": "313fa83a384955160e64f93f1573e7daf945a142",
+    "size": 0,
+    "url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/.devcontainer?ref=main",
+    "html_url": "https://github.com/z9m/androidtvbackgroundWebGui/tree/main/.devcontainer",
+    "git_url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/trees/313fa83a384955160e64f93f1573e7daf945a142",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/.devcontainer?ref=main",
+      "git": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/trees/313fa83a384955160e64f93f1573e7daf945a142",
+      "html": "https://github.com/z9m/androidtvbackgroundWebGui/tree/main/.devcontainer"
+    }
+  },
+  {
+    "name": ".dockerignore",
+    "path": ".dockerignore",
+    "sha": "cdd2b073cf4a4ebcb93d6d05678b5bb746d272d0",
+    "size": 125,
+    "url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/.dockerignore?ref=main",
+    "html_url": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/.dockerignore",
+    "git_url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/cdd2b073cf4a4ebcb93d6d05678b5bb746d272d0",
+    "download_url": "https://raw.githubusercontent.com/z9m/androidtvbackgroundWebGui/main/.dockerignore",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/.dockerignore?ref=main",
+      "git": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/cdd2b073cf4a4ebcb93d6d05678b5bb746d272d0",
+      "html": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/.dockerignore"
+    }
+  },
+  {
+    "name": ".env",
+    "path": ".env",
+    "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+    "size": 0,
+    "url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/.env?ref=main",
+    "html_url": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/.env",
+    "git_url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+    "download_url": "https://raw.githubusercontent.com/z9m/androidtvbackgroundWebGui/main/.env",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/.env?ref=main",
+      "git": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "html": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/.env"
+    }
+  },
+  {
+    "name": ".env.example",
+    "path": ".env.example",
+    "sha": "6999877d2033ec76eff3e2fa8e19ccd6a38e1a3d",
+    "size": 1022,
+    "url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/.env.example?ref=main",
+    "html_url": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/.env.example",
+    "git_url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/6999877d2033ec76eff3e2fa8e19ccd6a38e1a3d",
+    "download_url": "https://raw.githubusercontent.com/z9m/androidtvbackgroundWebGui/main/.env.example",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/.env.example?ref=main",
+      "git": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/6999877d2033ec76eff3e2fa8e19ccd6a38e1a3d",
+      "html": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/.env.example"
+    }
+  },
+  {
+    "name": ".gitattributes",
+    "path": ".gitattributes",
+    "sha": "526c8a38d4a53c339833267bbf86577f023ec507",
+    "size": 16,
+    "url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/.gitattributes?ref=main",
+    "html_url": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/.gitattributes",
+    "git_url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/526c8a38d4a53c339833267bbf86577f023ec507",
+    "download_url": "https://raw.githubusercontent.com/z9m/androidtvbackgroundWebGui/main/.gitattributes",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/.gitattributes?ref=main",
+      "git": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/526c8a38d4a53c339833267bbf86577f023ec507",
+      "html": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/.gitattributes"
+    }
+  },
+  {
+    "name": ".github",
+    "path": ".github",
+    "sha": "dcf840f6e91530d8af5a4494066e38387967214c",
+    "size": 0,
+    "url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/.github?ref=main",
+    "html_url": "https://github.com/z9m/androidtvbackgroundWebGui/tree/main/.github",
+    "git_url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/trees/dcf840f6e91530d8af5a4494066e38387967214c",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/.github?ref=main",
+      "git": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/trees/dcf840f6e91530d8af5a4494066e38387967214c",
+      "html": "https://github.com/z9m/androidtvbackgroundWebGui/tree/main/.github"
+    }
+  },
+  {
+    "name": ".gitignore",
+    "path": ".gitignore",
+    "sha": "534ed6af63149572385eba50f56229b39ab1d729",
+    "size": 181,
+    "url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/.gitignore?ref=main",
+    "html_url": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/.gitignore",
+    "git_url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/534ed6af63149572385eba50f56229b39ab1d729",
+    "download_url": "https://raw.githubusercontent.com/z9m/androidtvbackgroundWebGui/main/.gitignore",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/.gitignore?ref=main",
+      "git": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/534ed6af63149572385eba50f56229b39ab1d729",
+      "html": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/.gitignore"
+    }
+  },
+  {
+    "name": "Dockerfile",
+    "path": "Dockerfile",
+    "sha": "6d48dfd368d179476516d763119f62fd9fdba1e0",
+    "size": 2181,
+    "url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/Dockerfile?ref=main",
+    "html_url": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/Dockerfile",
+    "git_url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/6d48dfd368d179476516d763119f62fd9fdba1e0",
+    "download_url": "https://raw.githubusercontent.com/z9m/androidtvbackgroundWebGui/main/Dockerfile",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/Dockerfile?ref=main",
+      "git": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/6d48dfd368d179476516d763119f62fd9fdba1e0",
+      "html": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/Dockerfile"
+    }
+  },
+  {
+    "name": "LICENSE",
+    "path": "LICENSE",
+    "sha": "a20db299df897a35e2821354cd1426c353c4b5f0",
+    "size": 1062,
+    "url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/LICENSE?ref=main",
+    "html_url": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/LICENSE",
+    "git_url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/a20db299df897a35e2821354cd1426c353c4b5f0",
+    "download_url": "https://raw.githubusercontent.com/z9m/androidtvbackgroundWebGui/main/LICENSE",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/LICENSE?ref=main",
+      "git": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/a20db299df897a35e2821354cd1426c353c4b5f0",
+      "html": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/LICENSE"
+    }
+  },
+  {
+    "name": "README.md",
+    "path": "README.md",
+    "sha": "a7bd34daacf073ffdcf3fca05f25fb067bb9712d",
+    "size": 7042,
+    "url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/README.md?ref=main",
+    "html_url": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/README.md",
+    "git_url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/a7bd34daacf073ffdcf3fca05f25fb067bb9712d",
+    "download_url": "https://raw.githubusercontent.com/z9m/androidtvbackgroundWebGui/main/README.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/README.md?ref=main",
+      "git": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/a7bd34daacf073ffdcf3fca05f25fb067bb9712d",
+      "html": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/README.md"
+    }
+  },
+  {
+    "name": "TMDB.py",
+    "path": "TMDB.py",
+    "sha": "8a740c9bd5cb1a6bbcf24a54f6f518f42b44a783",
+    "size": 18604,
+    "url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/TMDB.py?ref=main",
+    "html_url": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/TMDB.py",
+    "git_url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/8a740c9bd5cb1a6bbcf24a54f6f518f42b44a783",
+    "download_url": "https://raw.githubusercontent.com/z9m/androidtvbackgroundWebGui/main/TMDB.py",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/TMDB.py?ref=main",
+      "git": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/8a740c9bd5cb1a6bbcf24a54f6f518f42b44a783",
+      "html": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/TMDB.py"
+    }
+  },
+  {
+    "name": "TMDB_color.py",
+    "path": "TMDB_color.py",
+    "sha": "2c37d0bb9cdf23e4c8fb2875cd807b496531f8bd",
+    "size": 21618,
+    "url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/TMDB_color.py?ref=main",
+    "html_url": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/TMDB_color.py",
+    "git_url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/2c37d0bb9cdf23e4c8fb2875cd807b496531f8bd",
+    "download_url": "https://raw.githubusercontent.com/z9m/androidtvbackgroundWebGui/main/TMDB_color.py",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/TMDB_color.py?ref=main",
+      "git": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/2c37d0bb9cdf23e4c8fb2875cd807b496531f8bd",
+      "html": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/TMDB_color.py"
+    }
+  },
+  {
+    "name": "assets",
+    "path": "assets",
+    "sha": "3465f8a5599daf7827d86c5d16a1d5facee18584",
+    "size": 0,
+    "url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/assets?ref=main",
+    "html_url": "https://github.com/z9m/androidtvbackgroundWebGui/tree/main/assets",
+    "git_url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/trees/3465f8a5599daf7827d86c5d16a1d5facee18584",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/assets?ref=main",
+      "git": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/trees/3465f8a5599daf7827d86c5d16a1d5facee18584",
+      "html": "https://github.com/z9m/androidtvbackgroundWebGui/tree/main/assets"
+    }
+  },
+  {
+    "name": "background.jpg",
+    "path": "background.jpg",
+    "sha": "bdb4bec31d5b3e76f817484309ff2eabe98ee35b",
+    "size": 3504830,
+    "url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/background.jpg?ref=main",
+    "html_url": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/background.jpg",
+    "git_url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/bdb4bec31d5b3e76f817484309ff2eabe98ee35b",
+    "download_url": "https://raw.githubusercontent.com/z9m/androidtvbackgroundWebGui/main/background.jpg",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/background.jpg?ref=main",
+      "git": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/bdb4bec31d5b3e76f817484309ff2eabe98ee35b",
+      "html": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/background.jpg"
+    }
+  },
+  {
+    "name": "bckg.png",
+    "path": "bckg.png",
+    "sha": "8b8d3f8f26e0ddab5b9159b941f37799f68213fa",
+    "size": 37600,
+    "url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/bckg.png?ref=main",
+    "html_url": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/bckg.png",
+    "git_url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/8b8d3f8f26e0ddab5b9159b941f37799f68213fa",
+    "download_url": "https://raw.githubusercontent.com/z9m/androidtvbackgroundWebGui/main/bckg.png",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/bckg.png?ref=main",
+      "git": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/8b8d3f8f26e0ddab5b9159b941f37799f68213fa",
+      "html": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/bckg.png"
+    }
+  },
+  {
+    "name": "certification",
+    "path": "certification",
+    "sha": "881dfcaf4b4df851b14f6f167aa9f2439c439e23",
+    "size": 0,
+    "url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/certification?ref=main",
+    "html_url": "https://github.com/z9m/androidtvbackgroundWebGui/tree/main/certification",
+    "git_url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/trees/881dfcaf4b4df851b14f6f167aa9f2439c439e23",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/certification?ref=main",
+      "git": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/trees/881dfcaf4b4df851b14f6f167aa9f2439c439e23",
+      "html": "https://github.com/z9m/androidtvbackgroundWebGui/tree/main/certification"
+    }
+  },
+  {
+    "name": "config.example.json",
+    "path": "config.example.json",
+    "sha": "942d97d26133bc9cd09e52fb3025cd54eb2f81a7",
+    "size": 318,
+    "url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/config.example.json?ref=main",
+    "html_url": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/config.example.json",
+    "git_url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/942d97d26133bc9cd09e52fb3025cd54eb2f81a7",
+    "download_url": "https://raw.githubusercontent.com/z9m/androidtvbackgroundWebGui/main/config.example.json",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/config.example.json?ref=main",
+      "git": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/942d97d26133bc9cd09e52fb3025cd54eb2f81a7",
+      "html": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/config.example.json"
+    }
+  },
+  {
+    "name": "cron_runner.py",
+    "path": "cron_runner.py",
+    "sha": "0428c9645ea5c6253ec991ad482cd9887b0697a7",
+    "size": 32177,
+    "url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/cron_runner.py?ref=main",
+    "html_url": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/cron_runner.py",
+    "git_url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/0428c9645ea5c6253ec991ad482cd9887b0697a7",
+    "download_url": "https://raw.githubusercontent.com/z9m/androidtvbackgroundWebGui/main/cron_runner.py",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/cron_runner.py?ref=main",
+      "git": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/0428c9645ea5c6253ec991ad482cd9887b0697a7",
+      "html": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/cron_runner.py"
+    }
+  },
+  {
+    "name": "debug_meta.json",
+    "path": "debug_meta.json",
+    "sha": "d6629948386321cb373b7a14430d0932b5b1ffa3",
+    "size": 250,
+    "url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/debug_meta.json?ref=main",
+    "html_url": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/debug_meta.json",
+    "git_url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/d6629948386321cb373b7a14430d0932b5b1ffa3",
+    "download_url": "https://raw.githubusercontent.com/z9m/androidtvbackgroundWebGui/main/debug_meta.json",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/debug_meta.json?ref=main",
+      "git": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/d6629948386321cb373b7a14430d0932b5b1ffa3",
+      "html": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/debug_meta.json"
+    }
+  },
+  {
+    "name": "debug_output.jpg",
+    "path": "debug_output.jpg",
+    "sha": "47e8d491c9b601eaabc652344e595a36d9ef9e20",
+    "size": 273303,
+    "url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/debug_output.jpg?ref=main",
+    "html_url": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/debug_output.jpg",
+    "git_url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/47e8d491c9b601eaabc652344e595a36d9ef9e20",
+    "download_url": "https://raw.githubusercontent.com/z9m/androidtvbackgroundWebGui/main/debug_output.jpg",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/debug_output.jpg?ref=main",
+      "git": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/47e8d491c9b601eaabc652344e595a36d9ef9e20",
+      "html": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/debug_output.jpg"
+    }
+  },
+  {
+    "name": "docker-compose.dev.yml",
+    "path": "docker-compose.dev.yml",
+    "sha": "81223b38bac655d2bf83cd83922a1b72f45b226a",
+    "size": 238,
+    "url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/docker-compose.dev.yml?ref=main",
+    "html_url": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/docker-compose.dev.yml",
+    "git_url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/81223b38bac655d2bf83cd83922a1b72f45b226a",
+    "download_url": "https://raw.githubusercontent.com/z9m/androidtvbackgroundWebGui/main/docker-compose.dev.yml",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/docker-compose.dev.yml?ref=main",
+      "git": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/81223b38bac655d2bf83cd83922a1b72f45b226a",
+      "html": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/docker-compose.dev.yml"
+    }
+  },
+  {
+    "name": "docker-compose.prod.yml",
+    "path": "docker-compose.prod.yml",
+    "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+    "size": 0,
+    "url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/docker-compose.prod.yml?ref=main",
+    "html_url": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/docker-compose.prod.yml",
+    "git_url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+    "download_url": "https://raw.githubusercontent.com/z9m/androidtvbackgroundWebGui/main/docker-compose.prod.yml",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/docker-compose.prod.yml?ref=main",
+      "git": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "html": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/docker-compose.prod.yml"
+    }
+  },
+  {
+    "name": "docker-compose.yml",
+    "path": "docker-compose.yml",
+    "sha": "59bf83a60224b598e7132dca0d9c7ee1d90ce06d",
+    "size": 841,
+    "url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/docker-compose.yml?ref=main",
+    "html_url": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/docker-compose.yml",
+    "git_url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/59bf83a60224b598e7132dca0d9c7ee1d90ce06d",
+    "download_url": "https://raw.githubusercontent.com/z9m/androidtvbackgroundWebGui/main/docker-compose.yml",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/docker-compose.yml?ref=main",
+      "git": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/59bf83a60224b598e7132dca0d9c7ee1d90ce06d",
+      "html": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/docker-compose.yml"
+    }
+  },
+  {
+    "name": "docker-entrypoint.sh",
+    "path": "docker-entrypoint.sh",
+    "sha": "2698eb89604f8d96e5813a10efcc22f1c9e288af",
+    "size": 1262,
+    "url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/docker-entrypoint.sh?ref=main",
+    "html_url": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/docker-entrypoint.sh",
+    "git_url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/2698eb89604f8d96e5813a10efcc22f1c9e288af",
+    "download_url": "https://raw.githubusercontent.com/z9m/androidtvbackgroundWebGui/main/docker-entrypoint.sh",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/docker-entrypoint.sh?ref=main",
+      "git": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/2698eb89604f8d96e5813a10efcc22f1c9e288af",
+      "html": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/docker-entrypoint.sh"
+    }
+  },
+  {
+    "name": "fonts",
+    "path": "fonts",
+    "sha": "404f2a32a1b804eb69dfc0a3631b6fcceffb5c61",
+    "size": 0,
+    "url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/fonts?ref=main",
+    "html_url": "https://github.com/z9m/androidtvbackgroundWebGui/tree/main/fonts",
+    "git_url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/trees/404f2a32a1b804eb69dfc0a3631b6fcceffb5c61",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/fonts?ref=main",
+      "git": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/trees/404f2a32a1b804eb69dfc0a3631b6fcceffb5c61",
+      "html": "https://github.com/z9m/androidtvbackgroundWebGui/tree/main/fonts"
+    }
+  },
+  {
+    "name": "gui_editor.py",
+    "path": "gui_editor.py",
+    "sha": "a25a79bdc8269303769c9a98b2561c3f21f87a6e",
+    "size": 89191,
+    "url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/gui_editor.py?ref=main",
+    "html_url": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/gui_editor.py",
+    "git_url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/a25a79bdc8269303769c9a98b2561c3f21f87a6e",
+    "download_url": "https://raw.githubusercontent.com/z9m/androidtvbackgroundWebGui/main/gui_editor.py",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/gui_editor.py?ref=main",
+      "git": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/a25a79bdc8269303769c9a98b2561c3f21f87a6e",
+      "html": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/gui_editor.py"
+    }
+  },
+  {
+    "name": "image_engine.py",
+    "path": "image_engine.py",
+    "sha": "3b720dc63bdc642edfcef329c954a28a2cdae5b3",
+    "size": 17541,
+    "url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/image_engine.py?ref=main",
+    "html_url": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/image_engine.py",
+    "git_url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/3b720dc63bdc642edfcef329c954a28a2cdae5b3",
+    "download_url": "https://raw.githubusercontent.com/z9m/androidtvbackgroundWebGui/main/image_engine.py",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/image_engine.py?ref=main",
+      "git": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/3b720dc63bdc642edfcef329c954a28a2cdae5b3",
+      "html": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/image_engine.py"
+    }
+  },
+  {
+    "name": "jellyfin.py",
+    "path": "jellyfin.py",
+    "sha": "f8460953c394f7c5966777b309800df54ecd3788",
+    "size": 9964,
+    "url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/jellyfin.py?ref=main",
+    "html_url": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/jellyfin.py",
+    "git_url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/f8460953c394f7c5966777b309800df54ecd3788",
+    "download_url": "https://raw.githubusercontent.com/z9m/androidtvbackgroundWebGui/main/jellyfin.py",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/jellyfin.py?ref=main",
+      "git": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/f8460953c394f7c5966777b309800df54ecd3788",
+      "html": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/jellyfin.py"
+    }
+  },
+  {
+    "name": "jellyfin_color.py",
+    "path": "jellyfin_color.py",
+    "sha": "22222afe5fc28e583d004d4953c9d29a154456d8",
+    "size": 9413,
+    "url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/jellyfin_color.py?ref=main",
+    "html_url": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/jellyfin_color.py",
+    "git_url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/22222afe5fc28e583d004d4953c9d29a154456d8",
+    "download_url": "https://raw.githubusercontent.com/z9m/androidtvbackgroundWebGui/main/jellyfin_color.py",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/jellyfin_color.py?ref=main",
+      "git": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/22222afe5fc28e583d004d4953c9d29a154456d8",
+      "html": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/jellyfin_color.py"
+    }
+  },
+  {
+    "name": "jellyfinlogo.png",
+    "path": "jellyfinlogo.png",
+    "sha": "94157c1e2af1b97dabed0cf96ea8242153993b9e",
+    "size": 13298,
+    "url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/jellyfinlogo.png?ref=main",
+    "html_url": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/jellyfinlogo.png",
+    "git_url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/94157c1e2af1b97dabed0cf96ea8242153993b9e",
+    "download_url": "https://raw.githubusercontent.com/z9m/androidtvbackgroundWebGui/main/jellyfinlogo.png",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/jellyfinlogo.png?ref=main",
+      "git": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/94157c1e2af1b97dabed0cf96ea8242153993b9e",
+      "html": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/jellyfinlogo.png"
+    }
+  },
+  {
+    "name": "metadata_cache.json",
+    "path": "metadata_cache.json",
+    "sha": "c7a62e97bbcb7a6dbbc774346c4e5c1978240030",
+    "size": 891466,
+    "url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/metadata_cache.json?ref=main",
+    "html_url": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/metadata_cache.json",
+    "git_url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/c7a62e97bbcb7a6dbbc774346c4e5c1978240030",
+    "download_url": "https://raw.githubusercontent.com/z9m/androidtvbackgroundWebGui/main/metadata_cache.json",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/metadata_cache.json?ref=main",
+      "git": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/c7a62e97bbcb7a6dbbc774346c4e5c1978240030",
+      "html": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/metadata_cache.json"
+    }
+  },
+  {
+    "name": "overlay.png",
+    "path": "overlay.png",
+    "sha": "a3d8fbef69ce315c01c51af1142aaedf20e90087",
+    "size": 453194,
+    "url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/overlay.png?ref=main",
+    "html_url": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/overlay.png",
+    "git_url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/a3d8fbef69ce315c01c51af1142aaedf20e90087",
+    "download_url": "https://raw.githubusercontent.com/z9m/androidtvbackgroundWebGui/main/overlay.png",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/overlay.png?ref=main",
+      "git": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/a3d8fbef69ce315c01c51af1142aaedf20e90087",
+      "html": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/overlay.png"
+    }
+  },
+  {
+    "name": "overlays.json",
+    "path": "overlays.json",
+    "sha": "c4a5b0ee630ca6b65f3b37c587aa11b7b46ee137",
+    "size": 794,
+    "url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/overlays.json?ref=main",
+    "html_url": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/overlays.json",
+    "git_url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/c4a5b0ee630ca6b65f3b37c587aa11b7b46ee137",
+    "download_url": "https://raw.githubusercontent.com/z9m/androidtvbackgroundWebGui/main/overlays.json",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/overlays.json?ref=main",
+      "git": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/c4a5b0ee630ca6b65f3b37c587aa11b7b46ee137",
+      "html": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/overlays.json"
+    }
+  },
+  {
+    "name": "overlays",
+    "path": "overlays",
+    "sha": "0ce227349d4c3b213d8222b366d5d17ca3771665",
+    "size": 0,
+    "url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/overlays?ref=main",
+    "html_url": "https://github.com/z9m/androidtvbackgroundWebGui/tree/main/overlays",
+    "git_url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/trees/0ce227349d4c3b213d8222b366d5d17ca3771665",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/overlays?ref=main",
+      "git": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/trees/0ce227349d4c3b213d8222b366d5d17ca3771665",
+      "html": "https://github.com/z9m/androidtvbackgroundWebGui/tree/main/overlays"
+    }
+  },
+  {
+    "name": "package-lock.json",
+    "path": "package-lock.json",
+    "sha": "555e21188abe36475f11606fbd1bda51a463541f",
+    "size": 83343,
+    "url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/package-lock.json?ref=main",
+    "html_url": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/package-lock.json",
+    "git_url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/555e21188abe36475f11606fbd1bda51a463541f",
+    "download_url": "https://raw.githubusercontent.com/z9m/androidtvbackgroundWebGui/main/package-lock.json",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/package-lock.json?ref=main",
+      "git": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/555e21188abe36475f11606fbd1bda51a463541f",
+      "html": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/package-lock.json"
+    }
+  },
+  {
+    "name": "package.json",
+    "path": "package.json",
+    "sha": "b238803c59add0325e4614a8342af8a2722a6761",
+    "size": 853,
+    "url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/package.json?ref=main",
+    "html_url": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/package.json",
+    "git_url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/b238803c59add0325e4614a8342af8a2722a6761",
+    "download_url": "https://raw.githubusercontent.com/z9m/androidtvbackgroundWebGui/main/package.json",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/package.json?ref=main",
+      "git": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/b238803c59add0325e4614a8342af8a2722a6761",
+      "html": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/package.json"
+    }
+  },
+  {
+    "name": "plex.py",
+    "path": "plex.py",
+    "sha": "27117510e75c85d2d73a43ee42cd565331ad1ebe",
+    "size": 36783,
+    "url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/plex.py?ref=main",
+    "html_url": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/plex.py",
+    "git_url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/27117510e75c85d2d73a43ee42cd565331ad1ebe",
+    "download_url": "https://raw.githubusercontent.com/z9m/androidtvbackgroundWebGui/main/plex.py",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/plex.py?ref=main",
+      "git": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/27117510e75c85d2d73a43ee42cd565331ad1ebe",
+      "html": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/plex.py"
+    }
+  },
+  {
+    "name": "plex_color.py",
+    "path": "plex_color.py",
+    "sha": "426e090ea0445eb6d02518bd4e6c7f252c9a92f0",
+    "size": 38272,
+    "url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/plex_color.py?ref=main",
+    "html_url": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/plex_color.py",
+    "git_url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/426e090ea0445eb6d02518bd4e6c7f252c9a92f0",
+    "download_url": "https://raw.githubusercontent.com/z9m/androidtvbackgroundWebGui/main/plex_color.py",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/plex_color.py?ref=main",
+      "git": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/426e090ea0445eb6d02518bd4e6c7f252c9a92f0",
+      "html": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/plex_color.py"
+    }
+  },
+  {
+    "name": "plexfriend.py",
+    "path": "plexfriend.py",
+    "sha": "9c0996c7e883f31db0e83067deb01594d10195d8",
+    "size": 11326,
+    "url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/plexfriend.py?ref=main",
+    "html_url": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/plexfriend.py",
+    "git_url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/9c0996c7e883f31db0e83067deb01594d10195d8",
+    "download_url": "https://raw.githubusercontent.com/z9m/androidtvbackgroundWebGui/main/plexfriend.py",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/plexfriend.py?ref=main",
+      "git": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/9c0996c7e883f31db0e83067deb01594d10195d8",
+      "html": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/plexfriend.py"
+    }
+  },
+  {
+    "name": "plexfriend_color.py",
+    "path": "plexfriend_color.py",
+    "sha": "f690401258d976af66c501074b6bb34051cdc30f",
+    "size": 12880,
+    "url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/plexfriend_color.py?ref=main",
+    "html_url": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/plexfriend_color.py",
+    "git_url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/f690401258d976af66c501074b6bb34051cdc30f",
+    "download_url": "https://raw.githubusercontent.com/z9m/androidtvbackgroundWebGui/main/plexfriend_color.py",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/plexfriend_color.py?ref=main",
+      "git": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/f690401258d976af66c501074b6bb34051cdc30f",
+      "html": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/plexfriend_color.py"
+    }
+  },
+  {
+    "name": "plexlogo.png",
+    "path": "plexlogo.png",
+    "sha": "3e4d7ad5ce3c640b595f651ad43fc30ed8855692",
+    "size": 1942,
+    "url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/plexlogo.png?ref=main",
+    "html_url": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/plexlogo.png",
+    "git_url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/3e4d7ad5ce3c640b595f651ad43fc30ed8855692",
+    "download_url": "https://raw.githubusercontent.com/z9m/androidtvbackgroundWebGui/main/plexlogo.png",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/plexlogo.png?ref=main",
+      "git": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/3e4d7ad5ce3c640b595f651ad43fc30ed8855692",
+      "html": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/plexlogo.png"
+    }
+  },
+  {
+    "name": "plexlogo_color.png",
+    "path": "plexlogo_color.png",
+    "sha": "c108c2b5ded7b45d591ff8ba22b44068abec30ef",
+    "size": 2507,
+    "url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/plexlogo_color.png?ref=main",
+    "html_url": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/plexlogo_color.png",
+    "git_url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/c108c2b5ded7b45d591ff8ba22b44068abec30ef",
+    "download_url": "https://raw.githubusercontent.com/z9m/androidtvbackgroundWebGui/main/plexlogo_color.png",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/plexlogo_color.png?ref=main",
+      "git": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/c108c2b5ded7b45d591ff8ba22b44068abec30ef",
+      "html": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/plexlogo_color.png"
+    }
+  },
+  {
+    "name": "preview_export.jpg",
+    "path": "preview_export.jpg",
+    "sha": "2023f3bed65e41b7748251bae98c29eb5540548f",
+    "size": 116790,
+    "url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/preview_export.jpg?ref=main",
+    "html_url": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/preview_export.jpg",
+    "git_url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/2023f3bed65e41b7748251bae98c29eb5540548f",
+    "download_url": "https://raw.githubusercontent.com/z9m/androidtvbackgroundWebGui/main/preview_export.jpg",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/preview_export.jpg?ref=main",
+      "git": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/2023f3bed65e41b7748251bae98c29eb5540548f",
+      "html": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/preview_export.jpg"
+    }
+  },
+  {
+    "name": "preview_render.jpg",
+    "path": "preview_render.jpg",
+    "sha": "6926041311003c2be0b6b691fca5df6969c145c2",
+    "size": 113954,
+    "url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/preview_render.jpg?ref=main",
+    "html_url": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/preview_render.jpg",
+    "git_url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/6926041311003c2be0b6b691fca5df6969c145c2",
+    "download_url": "https://raw.githubusercontent.com/z9m/androidtvbackgroundWebGui/main/preview_render.jpg",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/preview_render.jpg?ref=main",
+      "git": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/6926041311003c2be0b6b691fca5df6969c145c2",
+      "html": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/preview_render.jpg"
+    }
+  },
+  {
+    "name": "radarrsonarr.py",
+    "path": "radarrsonarr.py",
+    "sha": "144a4ac7862915c5583e2a5c95a169fa74de768c",
+    "size": 13786,
+    "url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/radarrsonarr.py?ref=main",
+    "html_url": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/radarrsonarr.py",
+    "git_url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/144a4ac7862915c5583e2a5c95a169fa74de768c",
+    "download_url": "https://raw.githubusercontent.com/z9m/androidtvbackgroundWebGui/main/radarrsonarr.py",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/radarrsonarr.py?ref=main",
+      "git": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/144a4ac7862915c5583e2a5c95a169fa74de768c",
+      "html": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/radarrsonarr.py"
+    }
+  },
+  {
+    "name": "radarrsonarr_color.py",
+    "path": "radarrsonarr_color.py",
+    "sha": "4c06f23705fb653b2647aaada823e6a9bbe79db7",
+    "size": 17056,
+    "url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/radarrsonarr_color.py?ref=main",
+    "html_url": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/radarrsonarr_color.py",
+    "git_url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/4c06f23705fb653b2647aaada823e6a9bbe79db7",
+    "download_url": "https://raw.githubusercontent.com/z9m/androidtvbackgroundWebGui/main/radarrsonarr_color.py",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/radarrsonarr_color.py?ref=main",
+      "git": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/4c06f23705fb653b2647aaada823e6a9bbe79db7",
+      "html": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/radarrsonarr_color.py"
+    }
+  },
+  {
+    "name": "render_task.js",
+    "path": "render_task.js",
+    "sha": "7ea03024b3bd510b37b50ed09955f604e988e04f",
+    "size": 101651,
+    "url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/render_task.js?ref=main",
+    "html_url": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/render_task.js",
+    "git_url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/7ea03024b3bd510b37b50ed09955f604e988e04f",
+    "download_url": "https://raw.githubusercontent.com/z9m/androidtvbackgroundWebGui/main/render_task.js",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/render_task.js?ref=main",
+      "git": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/7ea03024b3bd510b37b50ed09955f604e988e04f",
+      "html": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/render_task.js"
+    }
+  },
+  {
+    "name": "requirements.txt",
+    "path": "requirements.txt",
+    "sha": "f732d60c40b6b5beecc4e20fbc72a599a9fbd357",
+    "size": 49,
+    "url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/requirements.txt?ref=main",
+    "html_url": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/requirements.txt",
+    "git_url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/f732d60c40b6b5beecc4e20fbc72a599a9fbd357",
+    "download_url": "https://raw.githubusercontent.com/z9m/androidtvbackgroundWebGui/main/requirements.txt",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/requirements.txt?ref=main",
+      "git": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/f732d60c40b6b5beecc4e20fbc72a599a9fbd357",
+      "html": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/requirements.txt"
+    }
+  },
+  {
+    "name": "static",
+    "path": "static",
+    "sha": "22d0285031e5178af5985f51b7754498fd2bbbd3",
+    "size": 0,
+    "url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/static?ref=main",
+    "html_url": "https://github.com/z9m/androidtvbackgroundWebGui/tree/main/static",
+    "git_url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/trees/22d0285031e5178af5985f51b7754498fd2bbbd3",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/static?ref=main",
+      "git": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/trees/22d0285031e5178af5985f51b7754498fd2bbbd3",
+      "html": "https://github.com/z9m/androidtvbackgroundWebGui/tree/main/static"
+    }
+  },
+  {
+    "name": "templates",
+    "path": "templates",
+    "sha": "9ddce9e5f3bbf4d89f86415f4fa205b57a7d3fc8",
+    "size": 0,
+    "url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/templates?ref=main",
+    "html_url": "https://github.com/z9m/androidtvbackgroundWebGui/tree/main/templates",
+    "git_url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/trees/9ddce9e5f3bbf4d89f86415f4fa205b57a7d3fc8",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/templates?ref=main",
+      "git": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/trees/9ddce9e5f3bbf4d89f86415f4fa205b57a7d3fc8",
+      "html": "https://github.com/z9m/androidtvbackgroundWebGui/tree/main/templates"
+    }
+  },
+  {
+    "name": "tmdblogo.png",
+    "path": "tmdblogo.png",
+    "sha": "fa2165571a02917b8870ef0e120ee7404bbcd056",
+    "size": 1467,
+    "url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/tmdblogo.png?ref=main",
+    "html_url": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/tmdblogo.png",
+    "git_url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/fa2165571a02917b8870ef0e120ee7404bbcd056",
+    "download_url": "https://raw.githubusercontent.com/z9m/androidtvbackgroundWebGui/main/tmdblogo.png",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/tmdblogo.png?ref=main",
+      "git": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/fa2165571a02917b8870ef0e120ee7404bbcd056",
+      "html": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/tmdblogo.png"
+    }
+  },
+  {
+    "name": "trakt.py",
+    "path": "trakt.py",
+    "sha": "6498c2faadf967c016f32c2dfb696d7f9be931e8",
+    "size": 12090,
+    "url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/trakt.py?ref=main",
+    "html_url": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/trakt.py",
+    "git_url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/6498c2faadf967c016f32c2dfb696d7f9be931e8",
+    "download_url": "https://raw.githubusercontent.com/z9m/androidtvbackgroundWebGui/main/trakt.py",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/trakt.py?ref=main",
+      "git": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/6498c2faadf967c016f32c2dfb696d7f9be931e8",
+      "html": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/trakt.py"
+    }
+  },
+  {
+    "name": "traktlogo.png",
+    "path": "traktlogo.png",
+    "sha": "662e2080dc6e4961b8d05fc72c29552e3a88fc2c",
+    "size": 4502,
+    "url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/traktlogo.png?ref=main",
+    "html_url": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/traktlogo.png",
+    "git_url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/662e2080dc6e4961b8d05fc72c29552e3a88fc2c",
+    "download_url": "https://raw.githubusercontent.com/z9m/androidtvbackgroundWebGui/main/traktlogo.png",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/traktlogo.png?ref=main",
+      "git": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/662e2080dc6e4961b8d05fc72c29552e3a88fc2c",
+      "html": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/traktlogo.png"
+    }
+  },
+  {
+    "name": "trigger_missing.py",
+    "path": "trigger_missing.py",
+    "sha": "f346fbe6b84bee333da96ca55fd45039ce7bc4db",
+    "size": 4701,
+    "url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/trigger_missing.py?ref=main",
+    "html_url": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/trigger_missing.py",
+    "git_url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/f346fbe6b84bee333da96ca55fd45039ce7bc4db",
+    "download_url": "https://raw.githubusercontent.com/z9m/androidtvbackgroundWebGui/main/trigger_missing.py",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/trigger_missing.py?ref=main",
+      "git": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/f346fbe6b84bee333da96ca55fd45039ce7bc4db",
+      "html": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/trigger_missing.py"
+    }
+  },
+  {
+    "name": "vectorbg.svg",
+    "path": "vectorbg.svg",
+    "sha": "f93731a1fefd824c154169e3aac6c274323b4c53",
+    "size": 132472,
+    "url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/vectorbg.svg?ref=main",
+    "html_url": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/vectorbg.svg",
+    "git_url": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/f93731a1fefd824c154169e3aac6c274323b4c53",
+    "download_url": "https://raw.githubusercontent.com/z9m/androidtvbackgroundWebGui/main/vectorbg.svg",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/contents/vectorbg.svg?ref=main",
+      "git": "https://api.github.com/repos/z9m/androidtvbackgroundWebGui/git/blobs/f93731a1fefd824c154169e3aac6c274323b4c53",
+      "html": "https://github.com/z9m/androidtvbackgroundWebGui/blob/main/vectorbg.svg"
+    }
+  }
+]

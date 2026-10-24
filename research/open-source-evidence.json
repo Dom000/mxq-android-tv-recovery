@@ -1,0 +1,54 @@
+{
+  "checked_date": "2026-10-24 Africa/Lagos",
+  "armbian": {
+    "source_commit": "fac57a02f1c6ff2221a3f3099a1094dcdf41be26",
+    "release_tag": "26.11.0-trunk.95",
+    "release_published_at": "2026-10-14T16:14:24Z",
+    "assets": [
+      {
+        "name": "Armbian_community_26.11.0-trunk.95_Rk322x-box_resolute_current_6.18.56_xfce_desktop.img.xz",
+        "size": 816828260,
+        "browser_download_url": "https://github.com/armbian/community/releases/download/26.11.0-trunk.95/Armbian_community_26.11.0-trunk.95_Rk322x-box_resolute_current_6.18.56_xfce_desktop.img.xz",
+        "digest": "sha256:94c98f2da1afddc546b227210652ef0bafa8695483e437a806b58f7022013fd4"
+      },
+      {
+        "name": "Armbian_community_26.11.0-trunk.95_Rk322x-box_trixie_current_6.18.56_minimal.img.xz",
+        "size": 331491888,
+        "browser_download_url": "https://github.com/armbian/community/releases/download/26.11.0-trunk.95/Armbian_community_26.11.0-trunk.95_Rk322x-box_trixie_current_6.18.56_minimal.img.xz",
+        "digest": "sha256:01eed4961bd4c72f6489c864c836cf9fc5552316c8645c8c1668dcd6d5a04ef1"
+      }
+    ]
+  },
+  "libreelec": {
+    "source_branch": "libreelec-12.2-rk322x",
+    "source_commit": "c6116632c435822fe4bc46fa35a48b03f43385d5",
+    "source_tree_entries": 4867,
+    "source_tree_truncated": false,
+    "ssv_pathnames": [
+      "projects/Rockchip/devices/RK322X/patches/linux/default/wifi-driver-ssv6051.patch"
+    ],
+    "image_checksum": "6d0a24f734387f409cfc0c5df44193f2af791a8bf740d4f978bd6e29602f2d29  LibreELEC-RK322X.arm-12.2-nightly-20260311-1b9970a-rk322x.img.gz"
+  },
+  "ssv6158": {
+    "source_commit": "a2afa9d80568895edd8875841137103801b51859",
+    "commit_date": "2025-11-19T12:24:12Z",
+    "path": "hwif/sdio/sdio.c",
+    "matched_id": "5653:2060",
+    "source_file_sha256": "5783d068ea0e706ac09363e72391a251db91e4d6aa2192f5fe41b9c27009aa14",
+    "matching_lines": [
+      {
+        "line": 50,
+        "text": "#define SSV_TURISMOE_VENDOR_ID      (0x5653)"
+      },
+      {
+        "line": 51,
+        "text": "#define SSV_TURISMOE_DEVID          (0x2060)"
+      },
+      {
+        "line": 133,
+        "text": "{SDIO_DEVICE(SSV_TURISMOE_VENDOR_ID, SSV_TURISMOE_DEVID)},"
+      }
+    ]
+  },
+  "inspection_limit": "Source/configuration and download metadata only. No OS image downloaded or runtime tested."
+}

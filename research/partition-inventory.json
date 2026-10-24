@@ -1,0 +1,161 @@
+{
+  "sector_bytes": 512,
+  "emmc_bytes": 7834959872,
+  "source": "live sysfs + by-name, 2026-10-24 Africa/Lagos",
+  "partitions": [
+    {
+      "name": "uboot",
+      "number": 1,
+      "start": 16384,
+      "sectors": 8192,
+      "bytes": 4194304,
+      "mount": "\u2014",
+      "filesystem": "Unknown / raw container",
+      "criticality": "Boot chain",
+      "priority": "P0"
+    },
+    {
+      "name": "trust",
+      "number": 2,
+      "start": 24576,
+      "sectors": 16384,
+      "bytes": 8388608,
+      "mount": "\u2014",
+      "filesystem": "Unknown / raw container",
+      "criticality": "Boot chain / trusted OS",
+      "priority": "P0"
+    },
+    {
+      "name": "misc",
+      "number": 3,
+      "start": 40960,
+      "sectors": 8192,
+      "bytes": 4194304,
+      "mount": "\u2014",
+      "filesystem": "Unknown / raw container",
+      "criticality": "Boot/recovery selection",
+      "priority": "P0"
+    },
+    {
+      "name": "baseparamer",
+      "number": 4,
+      "start": 49152,
+      "sectors": 2048,
+      "bytes": 1048576,
+      "mount": "\u2014",
+      "filesystem": "Unknown / raw container",
+      "criticality": "Display/board parameters",
+      "priority": "P0"
+    },
+    {
+      "name": "resource",
+      "number": 5,
+      "start": 51200,
+      "sectors": 30720,
+      "bytes": 15728640,
+      "mount": "\u2014",
+      "filesystem": "Unknown / raw container",
+      "criticality": "DT / boot resources (inferred)",
+      "priority": "P0"
+    },
+    {
+      "name": "kernel",
+      "number": 6,
+      "start": 81920,
+      "sectors": 24576,
+      "bytes": 12582912,
+      "mount": "\u2014",
+      "filesystem": "Unknown / raw container",
+      "criticality": "Kernel",
+      "priority": "P0"
+    },
+    {
+      "name": "boot",
+      "number": 7,
+      "start": 106496,
+      "sectors": 24576,
+      "bytes": 12582912,
+      "mount": "\u2014",
+      "filesystem": "Unknown / raw container",
+      "criticality": "Android boot",
+      "priority": "P0"
+    },
+    {
+      "name": "recovery",
+      "number": 8,
+      "start": 131072,
+      "sectors": 65536,
+      "bytes": 33554432,
+      "mount": "\u2014",
+      "filesystem": "Unknown / raw container",
+      "criticality": "Recovery",
+      "priority": "P0"
+    },
+    {
+      "name": "backup",
+      "number": 9,
+      "start": 196608,
+      "sectors": 131072,
+      "bytes": 67108864,
+      "mount": "\u2014",
+      "filesystem": "Unknown / raw container",
+      "criticality": "Vendor backup role unverified",
+      "priority": "P0"
+    },
+    {
+      "name": "cache",
+      "number": 10,
+      "start": 327680,
+      "sectors": 262144,
+      "bytes": 134217728,
+      "mount": "/cache",
+      "filesystem": "ext4",
+      "criticality": "Runtime / data",
+      "priority": "P2"
+    },
+    {
+      "name": "metadata",
+      "number": 11,
+      "start": 589824,
+      "sectors": 32768,
+      "bytes": 16777216,
+      "mount": "/metadata",
+      "filesystem": "ext4",
+      "criticality": "Runtime / data",
+      "priority": "P1"
+    },
+    {
+      "name": "kpanic",
+      "number": 12,
+      "start": 622592,
+      "sectors": 8192,
+      "bytes": 4194304,
+      "mount": "\u2014",
+      "filesystem": "Unknown / raw container",
+      "criticality": "Runtime / data",
+      "priority": "P2"
+    },
+    {
+      "name": "system",
+      "number": 13,
+      "start": 630784,
+      "sectors": 4194304,
+      "bytes": 2147483648,
+      "mount": "/system",
+      "filesystem": "ext4",
+      "criticality": "Android / drivers",
+      "priority": "P0"
+    },
+    {
+      "name": "userdata",
+      "number": 14,
+      "start": 4825088,
+      "sectors": 10477568,
+      "bytes": 5364514816,
+      "mount": "/data",
+      "filesystem": "ext4",
+      "criticality": "Runtime / data",
+      "priority": "P1"
+    }
+  ]
+}

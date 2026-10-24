@@ -1,0 +1,108 @@
+{
+  "source": "https://api.github.com/repos/brave/brave-browser/releases/tags/v1.60.127",
+  "published_at": "2025-05-29T16:57:52Z",
+  "assets": [
+    {
+      "name": "Bravearm64Universal.apk",
+      "size": 281343991,
+      "url": "https://github.com/brave/brave-browser/releases/download/v1.60.127/Bravearm64Universal.apk",
+      "digest": null
+    },
+    {
+      "name": "Bravearm64Universal.apk.sha256",
+      "size": 89,
+      "url": "https://github.com/brave/brave-browser/releases/download/v1.60.127/Bravearm64Universal.apk.sha256",
+      "digest": null
+    },
+    {
+      "name": "Bravearm64Universal.apk.sha256.asc",
+      "size": 833,
+      "url": "https://github.com/brave/brave-browser/releases/download/v1.60.127/Bravearm64Universal.apk.sha256.asc",
+      "digest": null
+    },
+    {
+      "name": "BraveMonoarm.apk",
+      "size": 164302719,
+      "url": "https://github.com/brave/brave-browser/releases/download/v1.60.127/BraveMonoarm.apk",
+      "digest": null
+    },
+    {
+      "name": "BraveMonoarm.apk.sha256",
+      "size": 82,
+      "url": "https://github.com/brave/brave-browser/releases/download/v1.60.127/BraveMonoarm.apk.sha256",
+      "digest": null
+    },
+    {
+      "name": "BraveMonoarm.apk.sha256.asc",
+      "size": 833,
+      "url": "https://github.com/brave/brave-browser/releases/download/v1.60.127/BraveMonoarm.apk.sha256.asc",
+      "digest": null
+    },
+    {
+      "name": "BraveMonoarm64.aab.sha256",
+      "size": 84,
+      "url": "https://github.com/brave/brave-browser/releases/download/v1.60.127/BraveMonoarm64.aab.sha256",
+      "digest": null
+    },
+    {
+      "name": "BraveMonoarm64.aab.sha256.asc",
+      "size": 833,
+      "url": "https://github.com/brave/brave-browser/releases/download/v1.60.127/BraveMonoarm64.aab.sha256.asc",
+      "digest": null
+    },
+    {
+      "name": "BraveMonoarm64.apk",
+      "size": 273273644,
+      "url": "https://github.com/brave/brave-browser/releases/download/v1.60.127/BraveMonoarm64.apk",
+      "digest": null
+    },
+    {
+      "name": "BraveMonoarm64.apk.sha256",
+      "size": 84,
+      "url": "https://github.com/brave/brave-browser/releases/download/v1.60.127/BraveMonoarm64.apk.sha256",
+      "digest": null
+    },
+    {
+      "name": "BraveMonoarm64.apk.sha256.asc",
+      "size": 833,
+      "url": "https://github.com/brave/brave-browser/releases/download/v1.60.127/BraveMonoarm64.apk.sha256.asc",
+      "digest": null
+    },
+    {
+      "name": "BraveMonox64.apk",
+      "size": 328167765,
+      "url": "https://github.com/brave/brave-browser/releases/download/v1.60.127/BraveMonox64.apk",
+      "digest": null
+    },
+    {
+      "name": "BraveMonox64.apk.sha256",
+      "size": 82,
+      "url": "https://github.com/brave/brave-browser/releases/download/v1.60.127/BraveMonox64.apk.sha256",
+      "digest": null
+    },
+    {
+      "name": "BraveMonox64.apk.sha256.asc",
+      "size": 833,
+      "url": "https://github.com/brave/brave-browser/releases/download/v1.60.127/BraveMonox64.apk.sha256.asc",
+      "digest": null
+    },
+    {
+      "name": "BraveMonox86.apk",
+      "size": 217301502,
+      "url": "https://github.com/brave/brave-browser/releases/download/v1.60.127/BraveMonox86.apk",
+      "digest": null
+    },
+    {
+      "name": "BraveMonox86.apk.sha256",
+      "size": 82,
+      "url": "https://github.com/brave/brave-browser/releases/download/v1.60.127/BraveMonox86.apk.sha256",
+      "digest": null
+    },
+    {
+      "name": "BraveMonox86.apk.sha256.asc",
+      "size": 833,
+      "url": "https://github.com/brave/brave-browser/releases/download/v1.60.127/BraveMonox86.apk.sha256.asc",
+      "digest": null
+    }
+  ]
+}

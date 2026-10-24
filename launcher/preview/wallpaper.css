@@ -1,0 +1,17 @@
+.movie-background{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.movie-background img{position:absolute;width:100%;height:100%;object-fit:cover;object-position:right center;opacity:0;transition:opacity .9s ease}
+.movie-background img.visible{opacity:1}
+.wallpaper-scrim{position:absolute;inset:0;background:linear-gradient(90deg,#101c2960 0%,#101c2928 46%,#101c2930 100%);pointer-events:none}
+.wallpaper-scrim:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,#101c29e0 0%,#101c2900 22%,#101c2900 50%,#101c29f0 100%)}
+.grid-head{background:#101c29b8}
+.movie-background.paused img{transition:none}
+.wallpaper-label{font-size:12px;color:var(--muted);margin-top:12px}
+@media(prefers-reduced-motion:reduce){.movie-background img{transition:none}}
+.wifi-connection{display:flex;align-items:center;gap:10px;font-size:16px;padding:0 14px}
+.wifi-connection svg{width:24px;height:24px;stroke:var(--focus);stroke-width:2;fill:none;stroke-linecap:round}
+.wifi-connection .slash{display:none}
+.wifi-connection[data-connected="false"] svg{stroke:var(--muted)}
+.wifi-connection[data-connected="false"] .slash{display:block}
+.preview-note button{font-size:14px;min-height:38px;margin-top:12px}
+.tile .icon.real-icon{background:transparent;border-radius:0}
+.real-icon img{width:52px;height:52px;object-fit:contain}

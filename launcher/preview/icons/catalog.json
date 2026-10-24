@@ -1,0 +1,50 @@
+[
+  {
+    "label": "YouTube",
+    "package": "com.google.android.youtube.tv",
+    "file": "com.google.android.youtube.tv.png",
+    "resource": "res/mipmap-mdpi-v4/ic_app.png",
+    "sha256": "f8d2c0306d727d27e46e96d994009beaa631d91bf1e3463d4d0c8445b69ec332",
+    "bytes": 1170
+  },
+  {
+    "label": "Brave",
+    "package": "com.brave.browser",
+    "file": "com.brave.browser.webp",
+    "resource": "res/mipmap-mdpi-v4/app_icon",
+    "sha256": "3c426d16610cf90c2fb54258a0b94895441cc7492ec6bf22402b3373072b39dc",
+    "bytes": 2086
+  },
+  {
+    "label": "KD Player",
+    "package": "org.com.kdplayer",
+    "file": "org.com.kdplayer.png",
+    "resource": "res/drawable-mdpi-v4/ic_launcher.png",
+    "sha256": "96b5706bafc3a8898b39d18ed758b6e326cb8d76ce33c73f6c70c36a89a793f8",
+    "bytes": 16642
+  },
+  {
+    "label": "Netflix",
+    "package": "com.netflix.mediaclient",
+    "file": "com.netflix.mediaclient.png",
+    "resource": "res/drawable-mdpi-v4/icon.png",
+    "sha256": "26d249c0e93932516b39b9e0a18434ab9ca30aa644d38c0c4857844f84d0a82f",
+    "bytes": 792
+  },
+  {
+    "label": "Play Store",
+    "package": "com.android.vending",
+    "file": "com.android.vending.png",
+    "resource": "res/mipmap-mdpi-v4/ic_launcher_play_store.png",
+    "sha256": "0c3c84c454eb474df6e8387d3a32c5c7e7f60559450663c6a03e045bfab57f6e",
+    "bytes": 2299
+  },
+  {
+    "label": "Aptoide TV",
+    "package": "cm.aptoidetv.pt",
+    "file": "cm.aptoidetv.pt.png",
+    "resource": "res/drawable-xxxhdpi-v4/ic_launcher_large.png",
+    "sha256": "036c93753a84303022b8f0d4f4a44217d7e03db706378fa820efa5886c3e00f5",
+    "bytes": 24595
+  }
+]

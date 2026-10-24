@@ -1,0 +1,32 @@
+{
+  "date": "2026-10-24 Africa/Lagos",
+  "source_release": "https://github.com/brave/brave-browser/releases/tag/v1.60.127",
+  "proposed_variant": "BraveMonoarm.apk",
+  "proposed_version_code": 426012720,
+  "package": "com.brave.browser",
+  "version_name": "1.60.127",
+  "minimum_api": 24,
+  "device_api": 25,
+  "device_abi": "armeabi-v7a",
+  "device_ro_debuggable": "1",
+  "signer_certificate_sha256": "9c2db70513515fdbfbbc585b3edf3d7123d4dc67c94ffd306361c1d79bbf18ac",
+  "apks": [
+    {
+      "file": "mxq-android-tv-recovery/diagnostics/publisher-apk-inspection/BraveMonoarm-1.60.127.apk",
+      "bytes": 164302719,
+      "sha256": "2df0721c9f28e421584cd879bec1426e1b49a573e1c742e1423e098b9a6c199e",
+      "published_sha256_matches": true
+    },
+    {
+      "file": "mxq-android-tv-recovery/diagnostics/publisher-apk-inspection/Bravearm64Universal-1.60.127.apk",
+      "bytes": 281343991,
+      "sha256": "0bd8a2968d612b3126e9c07c5a604ceb5ec82670f8a6d334c3729a1875f4575a",
+      "published_sha256_matches": true
+    }
+  ],
+  "assessment": "User-approved replacement installed; installed SHA matches publisher ARM32 artifact. Previous immediate startup crash did not recur in 30.13-second observation. Secondary renderer churn and GMS/EGL warnings remain; actual browsing and long-term stability untested.",
+  "initial_installed_variant": "Bravearm64Universal.apk",
+  "initial_installed_version_code": 426012722,
+  "current_installed_variant": "BraveMonoarm.apk",
+  "current_installed_version_code": 426012720
+}
