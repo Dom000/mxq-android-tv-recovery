@@ -253,6 +253,7 @@ public final class MainActivity extends Activity {
         bar.addView(brand, new LinearLayout.LayoutParams(dp(212), dp(48)));
         bar.addView(action("Home", "tab:home", () -> navigate("home"), screen.equals("home")));
         bar.addView(action("Apps", "tab:apps", () -> navigate("apps"), screen.equals("apps")));
+        bar.addView(action("Recents", "recents", this::recents, false));
         bar.addView(new View(this), new LinearLayout.LayoutParams(0, 1, 1));
         LinearLayout wireless = row(); wireless.setGravity(Gravity.CENTER_VERTICAL);
         wireless.setPadding(dp(14), 0, dp(14), 0);
@@ -407,7 +408,7 @@ public final class MainActivity extends Activity {
         view.setId(View.generateViewId()); view.setFocusable(true); view.setClickable(true);
         view.setPointerIcon(PointerIcon.getSystemIcon(this, PointerIcon.TYPE_HAND));
         boolean quiet = key.startsWith("tab:") || key.equals("wifi") || key.equals("settings")
-            || key.equals("edit") || key.equals("next-scene");
+            || key.equals("edit") || key.equals("next-scene") || key.equals("recents");
         view.setBackground(quiet ? quietBackground(false, selected) : controlBackground(false, selected));
         view.setOnFocusChangeListener((focusedView, focused) -> {
             focusedView.setBackground(quiet ? quietBackground(focused, selected) : controlBackground(focused, selected));
@@ -460,20 +461,48 @@ public final class MainActivity extends Activity {
         }
     }
 
+    private void recents() {
+        RecentsShortcut.Result result = RecentsShortcut.showRecents();
+        if (result == RecentsShortcut.Result.OPENED) return;
+        activeDialog = new AlertDialog.Builder(this).setTitle("Recent apps")
+            .setMessage(result == RecentsShortcut.Result.NEEDS_SETUP
+                ? "Enable Evening Home — Recents in Accessibility settings, then return Home and select Recents again.\n\nThis optional shortcut opens Android's recent task cards. It doesn't read screen content. Use Android's dismiss controls to remove a task.\n\nTo stop an app's background services too, choose App settings, then Force stop."
+                : "Android couldn't open Recent apps. Try your remote's app-switch button, or choose App settings and Force stop an app. This firmware may restrict the task switcher.")
+            .setPositiveButton("Accessibility settings", (dialog, which) -> open(
+                new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS), "Accessibility settings aren't available on this firmware."))
+            .setNeutralButton("App settings", (dialog, which) -> appSettings())
+            .setNegativeButton("Cancel", null).create();
+        activeDialog.show();
+    }
+
+    private void appSettings() {
+        if (loading || apps.isEmpty() || loadError != null) {
+            open(new Intent(Settings.ACTION_APPLICATION_SETTINGS), "App settings aren't available.");
+            return;
+        }
+        List<App> snapshot = new ArrayList<>(apps);
+        String[] labels = new String[snapshot.size()];
+        for (int i = 0; i < labels.length; i++) labels[i] = snapshot.get(i).name;
+        activeDialog = new AlertDialog.Builder(this).setTitle("App settings")
+            .setItems(labels, (dialog, index) -> open(new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
+                Uri.fromParts("package", snapshot.get(index).pkg, null)), "This app's settings aren't available."))
+            .setNegativeButton("Cancel", null).create(); activeDialog.show();
+    }
+
     private void settings() {
         activeDialog = new AlertDialog.Builder(this).setTitle("Settings")
             .setItems(new String[] {"Device settings", "Edit favorites", "Open original Home", "About Evening Home",
                 wallpaper.motionEnabled() ? "Pause wallpaper slideshow" : "Resume wallpaper slideshow",
                 "Wallpaper: " + wallpaper.title(),
                 wallpaper.onlineEnabled() ? "Use bundled movie wallpapers" : "Use online TVMaze wallpapers",
-                "Refresh online backgrounds", "Background source & status"}, (dialog, index) -> {
+                "Refresh online backgrounds", "Background source & status", "App settings", "Recent apps help"}, (dialog, index) -> {
                 if (index == 0) open(new Intent(Settings.ACTION_SETTINGS), "Device settings aren't available.");
                 if (index == 1) editFavorites();
                 if (index == 2) open(new Intent(Intent.ACTION_MAIN).setComponent(STOCK)
                     .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK), "The original Home app isn't available.");
                 if (index == 3) {
                     activeDialog = new AlertDialog.Builder(this).setTitle("Evening Home")
-                        .setMessage("Version 0.3.0\nA quieter home for your TV.\n\nMusic controls use Android's current media player. Playback and Next support depend on that app.\n\nOnline background data: TVMaze (CC BY-SA). Image rights remain with their owners.\nBundled artwork: Universal Pictures, Marvel Studios, Sony Pictures and DreamWorks Animation.")
+                        .setMessage("Version 0.4.0\nA quieter home for your TV.\n\nMusic controls use Android's current media player. Playback and Next support depend on that app.\n\nOnline background data: TVMaze (CC BY-SA). Image rights remain with their owners.\nBundled artwork: Universal Pictures, Marvel Studios, Sony Pictures and DreamWorks Animation.")
                         .setNeutralButton("TVMaze", (about, which) -> open(new Intent(Intent.ACTION_VIEW,
                             Uri.parse("https://www.tvmaze.com/")), "A browser isn't available."))
                         .setPositiveButton("Done", null).create(); activeDialog.show();
@@ -495,6 +524,14 @@ public final class MainActivity extends Activity {
                             + "\n\nTVMaze supplies show and cartoon artwork. Backgrounds refresh daily and are saved for offline use.\n\nData: TVMaze, CC BY-SA. Image rights remain with their owners.")
                         .setNeutralButton("TVMaze", (source, which) -> open(new Intent(Intent.ACTION_VIEW,
                             Uri.parse("https://www.tvmaze.com/")), "A browser isn't available."))
+                        .setPositiveButton("Done", null).create(); activeDialog.show();
+                }
+                if (index == 9) appSettings();
+                if (index == 10) {
+                    activeDialog = new AlertDialog.Builder(this).setTitle("Recent apps")
+                        .setMessage("Press Home, then select Recents. Enable Evening Home — Recents in Accessibility settings once.\n\nSelect a task to resume it, or use Android's dismiss control to remove it. Available controls depend on the firmware.\n\nA recent task isn't proof an app is running. Dismissing a task may leave music or other services running. To stop those too, choose App settings, select the app and use Force stop. This may interrupt playback or downloads; saved app data remains.")
+                        .setNeutralButton("Accessibility settings", (help, which) -> open(new Intent(
+                            Settings.ACTION_ACCESSIBILITY_SETTINGS), "Accessibility settings aren't available."))
                         .setPositiveButton("Done", null).create(); activeDialog.show();
                 }
             }).setNegativeButton("Cancel", null).create(); activeDialog.show();

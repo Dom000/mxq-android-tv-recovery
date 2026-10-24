@@ -101,7 +101,7 @@ lines; accessibility names retain the full label. Text is never baked into art.
 TV-first landscape: 48dp horizontal and 28dp vertical safe padding. A 60dp header,
 flexible wallpaper area, 54dp rail heading and 162dp horizontal favorite rail
 fit the confirmed 720dp viewport. Home exposes real app entry points and two
-destinations, Home and Apps. The app grid has six columns at widths >=1000dp and
+destinations, Home and Apps, plus a quiet Recents utility action. The app grid has six columns at widths >=1000dp and
 four below that; grid scrolls vertically, favorites horizontally. Neither depends
 on a mouse. Portrait phones are outside the APK's supported layout. The desktop
 preview scales the entire 16:9 TV frame to the browser width.
@@ -117,7 +117,7 @@ fades stop while paused, detached or in the background. System animation scale
 zero disables automatic rotation and fading; Next scene still swaps instantly.
 The motion preference persists. Installed icons are small thumbnails loaded off
 the UI thread. TVMaze metadata/images are fetched on a separate worker while
-resumed; no background service. The vector
+resumed; no wallpaper background service. The optional, user-enabled Recents service only opens the system task switcher. The vector
 hillside remains a missing-asset fallback.
 
 ## Shapes
@@ -132,7 +132,7 @@ The canonical action and tile primitives live in MainActivity: `action`, `tile`,
 visible focus and pressed state. Hover only appears in the browser illustration;
 Android uses standard remote/touch focus behavior. Selected tabs use an underline; header and rail utility actions stay transparent
 until focus/hover/press. App tiles retain opaque surfaces. Selection stays distinct
-from the current focus. There are no destructive launcher actions.
+from the current focus. Task dismissal and Force stop remain Android-owned actions reached through Recents and App settings; the launcher never stops apps automatically.
 
 Home shows installed favorites with a small Favorites label, Next scene and Edit.
 Home starts/restores focus to an app tile; Home navigation remains available when
@@ -195,6 +195,16 @@ images. Store provenance/source links with cached public metadata. Credit TVMaze
 keys, ads, app-list upload or listening history. INTERNET is the only new normal
 permission. The browser starts in bundled mode for an offline review; its Settings
 can fetch TVMaze, and automated provider tests use explicit fixtures.
+
+## Recent apps
+
+The owner requested access to tasks left behind after pressing Home. A single
+Recents header action preserves the uncluttered layout and uses the shared action
+primitive. Native AlertDialog explains optional setup or a failed handoff. Android
+owns task cards, thumbnails and dismissal rather than duplicating a manager UI.
+App settings is a Settings destination for choosing an installed app and opening
+its Android details page. No running-app count, fake process status or task shelf
+is added to Home. The browser dialog clearly describes a native-only handoff.
 
 ## Music controls
 

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="recents_service_name">Evening Home — Recents</string>
+    <string name="recents_service_description">Opens Android’s recent apps when you select Recents on Home. No screen content, typing, app history or accessibility events are read or stored. Android owns task dismissal; this shortcut does not force stop apps. Disable here any time.</string>
+</resources>

@@ -18,6 +18,8 @@ firmware release. The current recommendation is to retain the existing firmware.
 | [Brave repair record](brave-arm32-repair-plan.md) | ARM32 package replacement and startup test. |
 | [Music app installation](music-app-installation.md) | Spotify/Audiomack signatures, installation and limits. |
 | [Dynamic wallpapers](dynamic-wallpapers.md) | TVMaze API choice, integration and verification. |
+| [Recent apps](recent-apps.md) | Optional system task-switcher shortcut, dismissal and Force stop. |
+| [Bluetooth audio](bluetooth-support.md) | Existing driver/assets, unidentified controller and external hardware limits. |
 | [Progress history](progress.md) | Investigation checkpoints and later results that supersede earlier ones. |
 
 Public source references are in [research/sources.md](../research/sources.md).

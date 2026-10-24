@@ -11,6 +11,8 @@ relationship with the containing Next.js website.
 | App Launch | MainActivity.launch and open | Android PackageManager | TV entry preferred / standard entry fallback | APK build; native app launch test pending |
 | Favorites | MainActivity.editFavorites and AppOrder | SharedPreferences pins | Native multi-choice dialog / hold OK | Host ordering tests; browser dialog checks; native dialog pending |
 | Toast | MainActivity.open and native Toast | This contract | Launch error / favorite result | Desktop status check; native test pending |
+| App settings | MainActivity.appSettings + Android Settings | PackageManager and Android app details | App picker / system settings fallback | APK build; physical Force stop handoff pending |
+| Recent apps | RecentsShortcut + Android SystemUI | Android task switcher | User-enabled / setup / unavailable | Build and privacy checks; physical handoff/dismissal pending |
 | Music controls | MusicControls + MainActivity.buildMusicBar | This contract | Hidden / playing / retained for resume | Browser simulation; real player test pending |
 | Wallpaper | WallpaperView, OnlineWallpapers and OnlineWallpaperPolicy | This contract | TVMaze cached / bundled / paused | Native fetch8/display; host policy and browser provider tests |
 
@@ -52,8 +54,10 @@ shows feedback. Favorites are app preferences, with no account/cloud synchroniza
 ## Permissions and installation
 
 ACCESS_NETWORK_STATE reads Wi-Fi connection status; INTERNET fetches the requested
-TVMaze artwork. No location, root, remote configuration, background service or
-system-package changes. Launching another app is initiated by the user's action.
+TVMaze artwork. The optional RecentsShortcut accessibility service is enabled only
+by the owner through Android settings. It subscribes to zero events, cannot retrieve
+window content, and invokes only GLOBAL_ACTION_RECENTS when selected. No location,
+root, remote configuration, playback service or system-package changes. Launching another app is initiated by the user's action.
 HomeEntry is shipped disabled. Preview installation and opening require the
 device owner's approval under their original instructions. Enabling HomeEntry
 and setting a default require a subsequent explicit opt-in. Keep the original
@@ -137,3 +141,32 @@ review interactions. Browser screenshots are an illustration of the native layou
 not screenshots from Android. Native D-pad traversal, dialog focus restoration,
 real installed-app launch, scroll restoration, font scaling, HDMI overscan, and
 CPU/RAM use require a separately approved device test. There is no emulator test.
+
+## Recent apps
+
+Recents is a quiet header action shared by Home and Apps. It opens Android's own
+task switcher through an optional AccessibilityService global action. Android owns
+the task list, thumbnails, resume and dismissal controls. No custom launch-history
+list is presented as running processes. AOSP API25 Recents activities are not
+exported; do not attempt privileged activity launches, hidden APIs or key injection.
+
+First selection shows a native explanatory dialog with Accessibility settings,
+App settings and Cancel. The owner must enable Evening Home — Recents in Android
+settings, return Home and select Recents again. Never enable it through ADB/root or
+automatically open Recents on returning from setup. The service is protected by
+BIND_ACCESSIBILITY_SERVICE and requests no accessibility events, window content,
+key filtering, touch exploration or gestures. No task/screen data is collected,
+stored or sent to TVMaze. Disabling/unbinding clears the in-process bridge. A
+false/refused global action shows recovery choices; returning restores trigger focus.
+
+Settings → Recent apps help explains dismissal and setup. Settings → App settings
+shows installed launchable apps, opens the chosen app's Android details page, and
+leaves Force stop/confirmation to Android. This list is never called a running-app
+list. Force stop may interrupt playback/downloads; don't clear app data or stop
+apps automatically. Recent tasks do not prove active processes; dismissing a task
+may leave separate services running. No custom Clear all or force-stop claim.
+
+The browser illustrates the Recents button and explanatory handoff dialog only; it
+never simulates actual task removal. Native handoff, dismissal, D-pad navigation
+inside SystemUI and settings availability require the physical MBOX. The TV refused
+its fixed-target connection during the 0.4.0 work; no installation/test is claimed.

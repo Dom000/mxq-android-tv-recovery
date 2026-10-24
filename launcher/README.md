@@ -109,3 +109,22 @@ backups and private signing keys are excluded. Links under build/ in local hando
 records refer to generated files; build the APK locally rather than expecting those
 binaries in a fresh clone. Historical diagnostic timestamps identify private
 investigation evidence.
+
+## Version 0.4.0 — Recent apps
+
+Built locally; not yet installed or physically verified. The fixed-target TV
+connection was refused during this change. The last verified installed version
+is 0.3.0; its Home/default configuration has not been changed.
+
+A quiet Recents button opens Android's task switcher after one-time setup:
+**Recents → Accessibility settings → Evening Home — Recents → On**. Return Home
+and select Recents again. The optional service cannot read window content and
+subscribes to no events; it only invokes Android's global Recents action. The
+owner can disable it in Accessibility settings at any time.
+
+Use Android's task dismissal controls to remove a card. Separate services may
+continue; **Settings → App settings → choose app → Force stop** reaches the
+platform's stop control. This preserves saved app data but can interrupt audio
+or downloads. Firmware may restrict or omit the native task switcher; failures
+show setup/help and App settings rather than a fabricated running-app list.
+See [Recent apps](../docs/recent-apps.md).

@@ -22,7 +22,7 @@ Live collection: 2026-10-24, Africa/Lagos. Initial details from the user's brief
 | Userdata | Partition 5,364,514,816 bytes; filesystem 3,428,424 KiB available | Confirmed snapshot; actual partition size differs from df capacity |
 | Wi-Fi | DT ssv6158; SDIO `5653:2060`; module ssv6158 loaded; bound `SSV6XXX_SDIO` | Confirmed converging evidence; no account/SSID collection |
 | Wi-Fi assets | ssv6158.ko, ssv6051.ko, ssv6x5x.ko; firmware ssv6x5x-sw.bin and configs | Confirmed filenames only; file existence does not establish cross-ROM ABI compatibility |
-| Bluetooth | DT node `disabled`, no HCI entries in `/sys/class/bluetooth`, no btusb binding directory | Strong evidence Bluetooth is unavailable in current configuration; physical absence unverified |
+| Bluetooth | DT node `disabled`, no HCI entries or advertised feature; Realtek `rtk_btusb` driver/device node and vendor software already present, no controller identified | Unavailable in current configuration; physical radio/variant unverified. See [Bluetooth audio](bluetooth-support.md). |
 | GPU | SurfaceFlinger: ARM Mali-400 MP, OpenGL ES 2.0; DT arm,mali400 | Confirmed live; `ro.opengles.version=196609` is inconsistent with the live renderer and not used as a capability claim |
 | HDMI | fb screen_info 1920×1080, 60 fps; command line hdmi.vic=16 | Confirmed configured output; no playback/audio listening test |
 | Audio | RK_RK322x, RK-HDMI-I2S, RK-SPDIF-CARD exposed | Confirmed ALSA devices; audible output untested |

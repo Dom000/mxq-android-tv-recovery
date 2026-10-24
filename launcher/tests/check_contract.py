@@ -45,3 +45,16 @@ assert len(icons) == 6
 for entry in icons:
     assert hashlib.sha256((root / "preview/icons" / entry["file"]).read_bytes()).hexdigest() == entry["sha256"]
 print("Six exact installed-app icon resources match their extraction hashes")
+
+# The optional Recents bridge must not acquire screen/event-reading capabilities.
+service = manifest.find("application/service")
+assert service.get(a + "name") == ".RecentsShortcut"
+assert service.get(a + "permission") == "android.permission.BIND_ACCESSIBILITY_SERVICE"
+config = ET.parse(root / "res/xml/recents_shortcut.xml").getroot()
+assert config.get(a + "canRetrieveWindowContent") == "false"
+assert config.get(a + "accessibilityEventTypes") is None, "default zero: no accessibility events"
+assert set(config.attrib) == {a + "description", a + "accessibilityFeedbackType", a + "canRetrieveWindowContent"}
+bridge = (root / "src/dev/mxq/home/RecentsShortcut.java").read_text()
+for forbidden in ["getRootInActiveWindow", "getWindows(", "dispatchGesture", "Runtime.getRuntime", "ProcessBuilder"]:
+    assert forbidden not in bridge, "Recents is a global-action shortcut, not a screen reader or root manager"
+print("Recents binding protection and no screen/event-reading configuration passed")

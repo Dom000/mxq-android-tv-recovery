@@ -11,14 +11,15 @@
     "Cancel discards favorite draft and restores trigger focus",
     "Favorite selection and honest app-preview feedback",
     "Settings dialog opens and Escape returns focus",
+    "Recents preview explains native handoff, closes by Escape/Done, restores focus and fits the header",
     "Next scene changes real artwork, preserves two image slots and updates the title",
     "Slideshow advances after 15 seconds with a fade",
     "Pause prevents automatic wallpaper advancement",
     "TVMaze adapter fixtures: online artwork, poster/untrusted-URL rejection, two image slots, failure retention and bundled fallback",
-    "Home arrow-key graph reaches all 15 visible controls",
+    "Home arrow-key graph reaches all 16 visible controls",
     "16:9 preview frame fits widths 1920, 960 and 640 without clipping",
     "No browser JavaScript errors"
   ],
   "browser": "130.0.6723.31",
-  "timestamp": "2026-10-24T18:37:17.736Z"
+  "timestamp": "2026-10-24T19:17:41.828Z"
 }

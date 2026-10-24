@@ -116,3 +116,32 @@ permission grant, account UI capture, store-service update or extra installer ap
 Real media transport behavior remains pending. Details/hashes/source limitations
 are in ../docs/music-app-installation.md. Do not infer service/playback success
 from package installation or a successful initial Activity launch.
+
+## Version 0.4.0 — built, physical installation pending
+
+The Recents shortcut and App settings destination build for minAPI25. The signed
+APK is 1078352 bytes, SHA-256
+`c559b16c8214e7aa03a9fcf3f85c1e6098076e27aaca2e1e44a50f9ff335feda`. The same local signer is retained
+(SHA-256 `c9e9d22d527578e42fe577b8b706d8747eb24ec7daeb6b48328dc4d092e076a6`),
+with v2/v3 signature and alignment verification. No signing key is published.
+
+Host checks pass, including the unchanged Home opt-in gate, exact two normal
+permissions and the accessibility service's protected binding, zero event
+subscription and disabled window-content capability. All18 browser checks pass,
+including the Recents illustration, Escape/Done focus restoration, header fit and
+all16 visible Home controls reachable by arrows. Browser pictures remain
+illustrations. Strict UI audit and DESIGN.md lint pass with no errors/warnings.
+
+The fixed-target TV refused its ADB connection on2026-10-24. An authorized host
+disconnect/reconnect did not restore it. No other device/address was tried, no
+APK was installed, no accessibility setting was changed, and no tasks were
+closed. Version0.3.0 is the last verified device installation/default. Actual
+Recents global-action handoff, firmware dismissal/D-pad controls, app details
+handoff and the disabled/refused paths still require physical validation.
+
+Once connected, update with the same signed APK using install-r, confirm the
+version and Home/default remain correct, and let the owner enable the optional
+shortcut in Accessibility settings. Press Home → Recents; verify resume/dismiss
+on a chosen test app. Check a playing music service remains controllable and
+that Force stop is an explicit Android-owned action. Do not photograph private
+task thumbnails or stop unrelated apps to test the feature.

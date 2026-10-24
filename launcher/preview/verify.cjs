@@ -90,6 +90,17 @@ const { pathToFileURL } = require('node:url');
     await page.keyboard.press('Escape');
     assert.equal(await page.evaluate(()=>document.activeElement.textContent),'Settings');
     mark('Settings dialog opens and Escape returns focus');
+    await page.getByRole('button',{name:'Recents',exact:true}).click();
+    assert.equal(await page.locator('#recents').evaluate(e=>e.open),true);
+    assert.match(await page.locator('#recents').innerText(),/cannot show or close Android tasks/);
+    await page.keyboard.press('Escape');
+    assert.equal(await page.evaluate(()=>document.activeElement.textContent),'Recents');
+    await page.getByRole('button',{name:'Recents',exact:true}).click();
+    await page.getByRole('button',{name:'Done',exact:true}).click();
+    assert.equal(await page.evaluate(()=>document.activeElement.textContent),'Recents');
+    const headerFits=await page.locator('header').evaluate(h=>[...h.children].every(c=>c.getBoundingClientRect().right<=h.getBoundingClientRect().right+1));
+    assert.equal(headerFits,true,'Header controls must fit the TV safe area');
+    mark('Recents preview explains native handoff, closes by Escape/Done, restores focus and fits the header');
     // Real bundled images, manual next, automatic advance and reduced-motion behavior.
     await page.reload();
     await page.waitForFunction(()=>document.querySelector('.movie-background').dataset.scene==='0');

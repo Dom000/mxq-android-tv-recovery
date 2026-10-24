@@ -10,7 +10,9 @@
     "Toast"
   ],
   "ownership": {
-    "Favorites": "native"
+    "Favorites": "native",
+    "Recent apps": "Android SystemUI via optional RecentsShortcut",
+    "App settings": "Android Settings via MainActivity.appSettings"
   },
   "evidence": {
     "hostChecks": "tests/check_contract.py",
@@ -19,6 +21,8 @@
   "nativeCapabilities": [
     "Navigation",
     "App Launch",
-    "Favorites"
+    "Favorites",
+    "Recent apps",
+    "App settings"
   ]
 }
