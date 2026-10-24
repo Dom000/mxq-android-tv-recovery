@@ -112,9 +112,11 @@ investigation evidence.
 
 ## Version 0.4.0 — Recent apps
 
-Built locally; not yet installed or physically verified. The fixed-target TV
-connection was refused during this change. The last verified installed version
-is 0.3.0; its Home/default configuration has not been changed.
+Installed successfully on 2026-10-24 after the owner supplied the changed IP.
+Installed versionCode4/versionName0.4.0, HomeEntry enabled/default and Home-key
+launch were verified. Recents was observed in the native header. The original
+launcher remains installed; actual task-switcher/dismissal verification awaits
+the owner enabling the optional shortcut.
 
 A quiet Recents button opens Android's task switcher after one-time setup:
 **Recents → Accessibility settings → Evening Home — Recents → On**. Return Home

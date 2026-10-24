@@ -12,7 +12,7 @@ relationship with the containing Next.js website.
 | Favorites | MainActivity.editFavorites and AppOrder | SharedPreferences pins | Native multi-choice dialog / hold OK | Host ordering tests; browser dialog checks; native dialog pending |
 | Toast | MainActivity.open and native Toast | This contract | Launch error / favorite result | Desktop status check; native test pending |
 | App settings | MainActivity.appSettings + Android Settings | PackageManager and Android app details | App picker / system settings fallback | APK build; physical Force stop handoff pending |
-| Recent apps | RecentsShortcut + Android SystemUI | Android task switcher | User-enabled / setup / unavailable | Build and privacy checks; physical handoff/dismissal pending |
+| Recent apps | RecentsShortcut + Android SystemUI | Android task switcher | User-enabled / setup / unavailable | Installed 0.4.0; native header observed; setup/handoff/dismissal pending |
 | Music controls | MusicControls + MainActivity.buildMusicBar | This contract | Hidden / playing / retained for resume | Browser simulation; real player test pending |
 | Wallpaper | WallpaperView, OnlineWallpapers and OnlineWallpaperPolicy | This contract | TVMaze cached / bundled / paused | Native fetch8/display; host policy and browser provider tests |
 
@@ -167,6 +167,7 @@ apps automatically. Recent tasks do not prove active processes; dismissing a tas
 may leave separate services running. No custom Clear all or force-stop claim.
 
 The browser illustrates the Recents button and explanatory handoff dialog only; it
-never simulates actual task removal. Native handoff, dismissal, D-pad navigation
-inside SystemUI and settings availability require the physical MBOX. The TV refused
-its fixed-target connection during the 0.4.0 work; no installation/test is claimed.
+never simulates actual task removal. Version0.4.0 was installed after the owner
+supplied the changed IP; HomeEntry/default and the native Recents header action
+were verified. Accessibility setup, native handoff, dismissal, D-pad navigation
+inside SystemUI and app-details availability still require physical validation.

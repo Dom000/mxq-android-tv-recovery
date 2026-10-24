@@ -57,10 +57,16 @@ Version 0.4.0 builds and passes host packaging/privacy checks. Browser checks co
 the button, an explicitly illustrative handoff dialog, focus restoration and header
 fit. The preview cannot show or close real Android tasks.
 
-The previously verified MBOX installation remains 0.3.0. Its fixed ADB endpoint
-refused connections during this change on 2026-10-24. Installation, accessibility
-setup, actual SystemUI handoff and task dismissal remain pending; no arbitrary
-apps were closed for verification.
+The initial endpoint refused connections because the address had changed. On
+2026-10-24 the owner supplied the new address and the RK3229 identity check passed.
+The exact signed 0.4.0 APK installed with Success using install-r; installed
+versionCode4/versionName0.4.0 and the existing HomeEntry default were read back.
+A Home-key test resumed HomeEntry, and Recents was found in the actual native
+header. A tap was sent to that control, but the setup dialog was not independently
+verified: transport briefly went offline, then Settings was in front. No further
+UI commands were sent. The Accessibility service was not enabled through ADB.
+Actual SystemUI handoff and task dismissal remain pending owner setup; no apps
+were closed or force-stopped for verification.
 
 Sources: [Android Recents screen](https://developer.android.com/guide/components/activities/recents),
 [AccessibilityService global actions](https://developer.android.com/reference/android/accessibilityservice/AccessibilityService#GLOBAL_ACTION_RECENTS),

@@ -117,7 +117,7 @@ Real media transport behavior remains pending. Details/hashes/source limitations
 are in ../docs/music-app-installation.md. Do not infer service/playback success
 from package installation or a successful initial Activity launch.
 
-## Version 0.4.0 — built, physical installation pending
+## Version 0.4.0 — installed; task-switcher setup pending
 
 The Recents shortcut and App settings destination build for minAPI25. The signed
 APK is 1078352 bytes, SHA-256
@@ -132,16 +132,29 @@ including the Recents illustration, Escape/Done focus restoration, header fit an
 all16 visible Home controls reachable by arrows. Browser pictures remain
 illustrations. Strict UI audit and DESIGN.md lint pass with no errors/warnings.
 
-The fixed-target TV refused its ADB connection on2026-10-24. An authorized host
-disconnect/reconnect did not restore it. No other device/address was tried, no
-APK was installed, no accessibility setting was changed, and no tasks were
-closed. Version0.3.0 is the last verified device installation/default. Actual
-Recents global-action handoff, firmware dismissal/D-pad controls, app details
-handoff and the disabled/refused paths still require physical validation.
+The initial fixed-target address refused connections on2026-10-24. The owner
+subsequently supplied192.168.1.3; only that address was connected, and RK3229
+identity/API25/ARMv7 and version0.3.0/default preflight passed.
 
-Once connected, update with the same signed APK using install-r, confirm the
-version and Home/default remain correct, and let the owner enable the optional
-shortcut in Accessibility settings. Press Home → Recents; verify resume/dismiss
-on a chosen test app. Check a playing music service remains controllable and
-that Force stop is an explicit Android-owned action. Do not photograph private
-task thumbnails or stop unrelated apps to test the feature.
+Private diagnostics/20261024T202930+0100 records the exact host hash/signer
+verification and adb install-r Success. Readback confirmed versionCode4,
+versionName0.4.0, HomeEntry enabled/default and the original launcher still
+installed. KEYCODE_HOME resumed dev.mxq.home/.HomeEntry.
+
+At203007+0100 the own-launcher hierarchy contained Recents at[464,34][570,82];
+a tap was sent. The following foreground guard failed during a transient ADB
+transport loss; no screenshot or further click was attempted. A host-only
+disconnect/reconnect restored the same device, with identity,0.4.0/default and
+HomeEntry resumed confirmed again at203056+0100.
+
+The next hierarchy did not independently establish the setup dialog. At203149
+window-focus metadata identified Android Settings/SubSettings, so screenshot
+capture and further UI commands were stopped. No Settings contents or private
+task thumbnails were stored, no accessibility permission was enabled through
+ADB, and no apps were dismissed/force-stopped. Do not infer service setup or
+SystemUI success from a sent tap.
+
+The owner must enable Evening Home — Recents in Accessibility settings, return
+Home and select Recents again. Actual task-switcher handoff, D-pad controls,
+selected-task dismissal and App settings/Force stop handoff remain pending.
+Do not close unrelated tasks or photograph private thumbnails for verification.

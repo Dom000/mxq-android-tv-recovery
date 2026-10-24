@@ -41,10 +41,10 @@ The reference device is an MXQ Pro 4K / MBOX with Rockchip RK3229, ARMv7, approx
 1 GB RAM and SSV6158 Wi-Fi. Its API level and fingerprint identify **Android 7.1.2 /
 API 25**, despite a higher version string in its settings.
 
-Evening Home **0.3.0** is the last verified installation and remains selected as
-default on that device. Version **0.4.0** adds the Recents
-shortcut and App settings; installation and physical task-dismissal tests are pending
-because the device refused its ADB connection. Native
+Evening Home **0.4.0** is installed and selected as default on that device.
+The owner supplied its changed IP, and the same-signer update installed successfully
+on 2026-10-24. Recents was observed in the native header; owner-enabled Accessibility
+setup and actual task-switcher/dismissal verification remain pending. Earlier native
 D-pad operation was owner-confirmed; eight TVMaze backgrounds were fetched and a
 downloaded background was observed on Home. The original system launcher is retained.
 
