@@ -1,0 +1,17 @@
+{
+  "scope": "Synthetic browser task fixtures only; not native Android task removal",
+  "passed": [
+    "D-pad row/column movement reaches each large Open/Close button",
+    "Simulated close removes exactly one selected task and restores row focus",
+    "Clear all confirmation traps focus, defaults to Cancel and Escape restores trigger without deletion",
+    "Confirmed simulated Clear all yields empty state with usable Done",
+    "Android-refusal fixture retains task and exposes error",
+    "Page controls reach later/earlier task fixtures",
+    "D-pad graph reaches all 11 enabled controls",
+    "Unsupported layout, loading/recovery and empty states preserve navigation",
+    "16:9 layout fits 1920, 960 and 640 widths without overflow",
+    "No JavaScript errors"
+  ],
+  "browser": "130.0.6723.31",
+  "timestamp": "2026-10-25T00:05:11.623Z"
+}

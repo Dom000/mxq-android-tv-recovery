@@ -102,6 +102,7 @@ public final class MainActivity extends Activity {
 
     @Override protected void onResume() {
         super.onResume();
+        RemoteRecentsService.homeResumed();
         getWindow().getDecorView().setSystemUiVisibility(
             View.SYSTEM_UI_FLAG_FULLSCREEN | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
             | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
@@ -392,13 +393,7 @@ public final class MainActivity extends Activity {
     }
 
     private Button action(String label, String key, Runnable click, boolean selected) {
-        Button button = new Button(this); button.setText(label); button.setAllCaps(false);
-        button.setTextSize(17); button.setTextColor(Tokens.TEXT);
-        button.setTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL));
-        button.setMinHeight(0); button.setMinimumHeight(0); button.setMinWidth(dp(90));
-        button.setPadding(dp(22), 0, dp(22), 0); button.setStateListAnimator(null);
-        button.setSingleLine(true); button.setEllipsize(TextUtils.TruncateAt.END);
-        button.setMaxWidth(dp(410));
+        Button button = TvControls.button(this, label, click);
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(-2, dp(48));
         lp.setMargins(0, dp(3), dp(12), dp(3)); button.setLayoutParams(lp);
         wire(button, key, selected, click); return button;
@@ -433,19 +428,11 @@ public final class MainActivity extends Activity {
     }
 
     private GradientDrawable surface(boolean focused, boolean selected) {
-        GradientDrawable drawable = new GradientDrawable(); drawable.setCornerRadius(dp(Tokens.RADIUS));
-        drawable.setColor(focused ? 0xff344f63 : selected ? 0xff2a4052 : Tokens.SURFACE);
-        drawable.setStroke(dp(focused ? 3 : 1), focused ? Tokens.FOCUS : selected ? 0xff6e8799 : 0xff35495b);
-        return drawable;
+        return TvControls.surface(this, focused, selected);
     }
 
     private StateListDrawable controlBackground(boolean focused, boolean selected) {
-        StateListDrawable states = new StateListDrawable();
-        GradientDrawable pressed = surface(focused, selected); pressed.setColor(0xff466278);
-        states.addState(new int[] {android.R.attr.state_pressed}, pressed);
-        GradientDrawable hovered = surface(focused, selected); hovered.setColor(0xff2a4052);
-        states.addState(new int[] {android.R.attr.state_hovered}, hovered);
-        states.addState(new int[] {}, surface(focused, selected)); return states;
+        return TvControls.background(this, focused, selected);
     }
 
     private void launch(App app) {
@@ -462,6 +449,22 @@ public final class MainActivity extends Activity {
     }
 
     private void recents() {
+        if (RemoteRecentsService.available()) { RemoteRecentsService.open(); return; }
+        if (!preferences.getBoolean("native-recents", false)) { remoteRecentsSetup(); return; }
+        systemRecents();
+    }
+
+    private void remoteRecentsSetup() {
+        activeDialog = new AlertDialog.Builder(this).setTitle("Remote Recent apps")
+            .setMessage("Large Open, Close and Clear all buttons for your remote.\n\nEnable Evening Home — Remote Recents in Accessibility settings, then return Home and select Recents.\n\nThis separate optional helper needs Android's screen-content access to read task names and buttons in Recents while its view is open. Nothing is saved or uploaded. Your existing Recents shortcut keeps its current permissions.")
+            .setPositiveButton("Accessibility settings", (dialog, which) -> open(new Intent(
+                Settings.ACTION_ACCESSIBILITY_SETTINGS), "Accessibility settings aren't available."))
+            .setNeutralButton("Use system view", (dialog, which) -> {
+                preferences.edit().putBoolean("native-recents", true).apply(); systemRecents();
+            }).setNegativeButton("Cancel", null).create(); activeDialog.show();
+    }
+
+    private void systemRecents() {
         RecentsShortcut.Result result = RecentsShortcut.showRecents();
         if (result == RecentsShortcut.Result.OPENED) return;
         activeDialog = new AlertDialog.Builder(this).setTitle("Recent apps")
@@ -495,14 +498,15 @@ public final class MainActivity extends Activity {
                 wallpaper.motionEnabled() ? "Pause wallpaper slideshow" : "Resume wallpaper slideshow",
                 "Wallpaper: " + wallpaper.title(),
                 wallpaper.onlineEnabled() ? "Use bundled movie wallpapers" : "Use online TVMaze wallpapers",
-                "Refresh online backgrounds", "Background source & status", "App settings", "Recent apps help"}, (dialog, index) -> {
+                "Refresh online backgrounds", "Background source & status", "App settings", "Recent apps help",
+                "Remote Recent apps setup", "Open system Recent apps"}, (dialog, index) -> {
                 if (index == 0) open(new Intent(Settings.ACTION_SETTINGS), "Device settings aren't available.");
                 if (index == 1) editFavorites();
                 if (index == 2) open(new Intent(Intent.ACTION_MAIN).setComponent(STOCK)
                     .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK), "The original Home app isn't available.");
                 if (index == 3) {
                     activeDialog = new AlertDialog.Builder(this).setTitle("Evening Home")
-                        .setMessage("Version 0.4.0\nA quieter home for your TV.\n\nMusic controls use Android's current media player. Playback and Next support depend on that app.\n\nOnline background data: TVMaze (CC BY-SA). Image rights remain with their owners.\nBundled artwork: Universal Pictures, Marvel Studios, Sony Pictures and DreamWorks Animation.")
+                        .setMessage("Version 0.5.8\nA quieter home for your TV.\n\nMusic controls use Android's current media player. Playback and Next support depend on that app.\n\nOnline background data: TVMaze (CC BY-SA). Image rights remain with their owners.\nBundled artwork: Universal Pictures, Marvel Studios, Sony Pictures and DreamWorks Animation.")
                         .setNeutralButton("TVMaze", (about, which) -> open(new Intent(Intent.ACTION_VIEW,
                             Uri.parse("https://www.tvmaze.com/")), "A browser isn't available."))
                         .setPositiveButton("Done", null).create(); activeDialog.show();
@@ -529,11 +533,13 @@ public final class MainActivity extends Activity {
                 if (index == 9) appSettings();
                 if (index == 10) {
                     activeDialog = new AlertDialog.Builder(this).setTitle("Recent apps")
-                        .setMessage("Press Home, then select Recents. Enable Evening Home — Recents in Accessibility settings once.\n\nSelect a task to resume it, or use Android's dismiss control to remove it. Available controls depend on the firmware.\n\nA recent task isn't proof an app is running. Dismissing a task may leave music or other services running. To stop those too, choose App settings, select the app and use Force stop. This may interrupt playback or downloads; saved app data remains.")
+                        .setMessage("Enable Evening Home — Remote Recents in Accessibility settings for the remote-friendly view. Up/Down selects a row; Left/Right reaches Open and Close; OK activates the focused button. Clear all asks before removing tasks. Earlier/Later apps pages Android's card stack where supported.\n\nA recent task isn't proof an app is running. Music and other services may continue after dismissal. Use App settings → app → Force stop to stop those too. This can interrupt playback/downloads; saved app data remains.\n\nSystem view remains available in Settings.")
                         .setNeutralButton("Accessibility settings", (help, which) -> open(new Intent(
                             Settings.ACTION_ACCESSIBILITY_SETTINGS), "Accessibility settings aren't available."))
                         .setPositiveButton("Done", null).create(); activeDialog.show();
                 }
+                if (index == 11) remoteRecentsSetup();
+                if (index == 12) systemRecents();
             }).setNegativeButton("Cancel", null).create(); activeDialog.show();
     }
 

@@ -25,15 +25,16 @@ existing firmware; changing the launcher does not change Android compatibility.
 - Daily artwork refresh, an offline cache, 15-second rotation and gentle fades.
 - Bundled movie artwork, manual Next scene and a slideshow pause option.
 - Wi-Fi connection indicator, clock and device-settings shortcuts.
-- Recents shortcut to Android’s task switcher, with optional Accessibility setup.
+- Remote-friendly Recents with large Open/Close buttons and confirmed Clear all.
 - App settings access for Android’s Force stop control.
 - Compact play/pause and Next controls for Android's current media receiver.
 
 Background source, refresh and credits stay in Settings. The renderer keeps at most
 two decoded frames, sampled to at most 1600 × 900. Only Internet and network-state
-permissions are requested. An optional user-enabled Accessibility service opens
-Recents; it requests no events or screen content. There is no notification listener
-or wallpaper/playback service.
+permissions are requested. The optional Remote Recents Accessibility service reads
+SystemUI task controls while its panel is open; task data is never saved or uploaded.
+The original system-view shortcut retains its limited permissions. There is no
+notification listener or wallpaper/playback service.
 
 ## Tested hardware and current status
 
@@ -41,22 +42,24 @@ The reference device is an MXQ Pro 4K / MBOX with Rockchip RK3229, ARMv7, approx
 1 GB RAM and SSV6158 Wi-Fi. Its API level and fingerprint identify **Android 7.1.2 /
 API 25**, despite a higher version string in its settings.
 
-Evening Home **0.4.0** is installed and selected as default on that device.
-The owner supplied its changed IP, and the same-signer update installed successfully
-on 2026-10-24. Recents was observed in the native header; owner-enabled Accessibility
-setup and actual task-switcher/dismissal verification remain pending. Earlier native
-D-pad operation was owner-confirmed; eight TVMaze backgrounds were fetched and a
-downloaded background was observed on Home. The original system launcher is retained.
+Evening Home **0.5.8** is installed and selected as default on the reference MBOX.
+The redesigned Recents panel was verified on 2026-10-25 with real D-pad keys: Open/Close
+focus, Clear all confirmation, Back cancellation and focus restoration. The owner
+confirmed that Close removes the selected task. The original launcher remains installed.
+Eight TVMaze backgrounds were previously fetched and native display observed.
 
 Spotify TV 1.81.55 and Audiomack 6.59.1 were separately installed and opened during
 the investigation. Their APKs are not included. Audiomack exposes a standard
 Android launch activity and may require pointer navigation. Real music playback
 and launcher transport controls still need a player test.
 
-For 0.4.0, select **Recents → Accessibility settings → Evening Home — Recents → On**
-once, return Home, then select **Recents** again. Android provides task removal.
-For services that keep running, use **Settings → App settings → app → Force stop**.
-See [Recent apps](docs/recent-apps.md) for behavior and firmware limits.
+Enable **Evening Home — Remote Recents** in Accessibility settings once, then
+return Home and select **Recents**. Up/Down selects a row, Left/Right reaches Open
+and Close, and OK activates. Clear all asks for confirmation. For services that
+keep running, use **Settings → App settings → app → Force stop**.
+See [Recent apps](docs/recent-apps.md) for setup, privacy and firmware limits.
+
+![Remote Recents browser design preview with synthetic sample tasks](launcher/preview/evening-recents.png)
 
 See [verification and remaining limits](launcher/VERIFICATION.md) and the
 [music app installation record](docs/music-app-installation.md). Other MXQ units

@@ -22,15 +22,19 @@ the native APK reads connection changes from Android.
 - Saved favorites, system-format clock, device settings and original Home shortcut.
 - Live Wi-Fi connected/disconnected icon, with a shortcut to Wi-Fi settings.
 - D-pad, mouse/remote-trackpad clicks and scrolling.
-- Only network-status and Internet permissions; no location, notification access,
-  root, ads or background service. TVMaze receives fixed show-artwork requests.
+- Optional remote Recents panel with Open, Close and confirmed Clear all. Its separate
+  Accessibility service reads SystemUI controls only while requested; no task history
+  is saved or uploaded. No root, global key filter or notification listener.
+- Only network-status and Internet normal permissions. TVMaze receives fixed
+  show-artwork requests; no app list, task names or listening history.
 - **Evening Home is now this MBOX’s default Home**, enabled at the owner’s request.
   The stock launcher remains installed for rollback. Fresh APK installs still ship
   HomeEntry disabled until explicitly activated.
 
 ## Review locally
 
-Open [preview/index.html](preview/index.html) in a browser. Arrow keys move focus,
+Open [preview/index.html](preview/index.html) or the new [Recents preview](preview/recents.html)
+in a browser. The Recents preview uses explicitly synthetic task fixtures. Arrow keys move focus,
 Enter activates and Escape returns Home. Apps are illustrative; no Android app
 can run in this browser preview. Favorite edits last only for that preview session.
 
@@ -130,3 +134,25 @@ platform's stop control. This preserves saved app data but can interrupt audio
 or downloads. Firmware may restrict or omit the native task switcher; failures
 show setup/help and App settings rather than a fabricated running-app list.
 See [Recent apps](../docs/recent-apps.md).
+
+## Version 0.5.8 — remote Recent apps
+
+Installed on the reference MBOX on2026-10-25; the Home default remains selected.
+Enable **Evening Home — Remote Recents** in Accessibility settings, return Home
+and select Recents. This separate opt-in keeps the original shortcut unchanged.
+The panel uses actual SystemUI task controls, with large D-pad buttons and no
+thumbnails. Up/Down selects rows; Left/Right reaches Open/Close; OK activates.
+Clear all confirms; Back cancels confirmation or returns Home. System view remains
+available, and Earlier/Later apps pages the native stack when exposed.
+
+Native D-pad focus, confirmation/cancellation and task-list updates were observed;
+the owner confirmed actual Close. Actual bulk clearing was not executed by the
+assistant. Task dismissal may leave services running. Read the
+[behavior and firmware constraints](../docs/recent-apps.md) before device automation.
+
+![Synthetic remote Recents design preview](preview/evening-recents.png)
+
+The browser's separate check is `node preview/verify-recents.cjs` with the same
+Playwright/Chromium environment used by `preview/verify.cjs`. It covers navigation,
+close fixtures, confirmation, refusal, paging, loading, unsupported/empty states
+and responsive16:9 geometry. It does not manipulate Android tasks.

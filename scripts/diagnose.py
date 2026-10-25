@@ -15,7 +15,7 @@ import tarfile
 from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).resolve().parents[1]
-TV = "192.168.1.3:5555"  # Owner-confirmed address; identity checked. No emulator fallback.
+TV = "192.168.1.4:5555"  # Owner-confirmed address; identity checked. No emulator fallback.
 STAMP = datetime.datetime.now(ZoneInfo("Africa/Lagos")).strftime("%Y%m%dT%H%M%S%z")
 OUT = ROOT / "diagnostics" / STAMP
 os.umask(0o077)

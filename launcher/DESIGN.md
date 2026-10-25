@@ -117,7 +117,7 @@ fades stop while paused, detached or in the background. System animation scale
 zero disables automatic rotation and fading; Next scene still swaps instantly.
 The motion preference persists. Installed icons are small thumbnails loaded off
 the UI thread. TVMaze metadata/images are fetched on a separate worker while
-resumed; no wallpaper background service. The optional, user-enabled Recents service only opens the system task switcher. The vector
+resumed; no wallpaper background service. The original Recents service opens the system task switcher. A separately enabled Remote Recents service supplies the optional task-control panel. The vector
 hillside remains a missing-asset fallback.
 
 ## Shapes
@@ -127,8 +127,10 @@ changes border thickness inside the existing bounds, so the rail never jumps.
 
 ## Components
 
-The canonical action and tile primitives live in MainActivity: `action`, `tile`,
-`wire` and `controlBackground`. Every actionable view is focusable and has a
+The canonical focus surfaces and action geometry live in `TvControls`; Home and
+RecentsPanel share them. MainActivity retains `action`, `tile` and `wire` for
+Home-specific quiet navigation and app actions. This consolidates existing values
+without changing the palette, geometry or Home layout. Every actionable view is focusable and has a
 visible focus and pressed state. Hover only appears in the browser illustration;
 Android uses standard remote/touch focus behavior. Selected tabs use an underline; header and rail utility actions stay transparent
 until focus/hover/press. App tiles retain opaque surfaces. Selection stays distinct
@@ -198,13 +200,29 @@ can fetch TVMaze, and automated provider tests use explicit fixtures.
 
 ## Recent apps
 
-The owner requested access to tasks left behind after pressing Home. A single
-Recents header action preserves the uncluttered layout and uses the shared action
-primitive. Native AlertDialog explains optional setup or a failed handoff. Android
-owns task cards, thumbnails and dismissal rather than duplicating a manager UI.
-App settings is a Settings destination for choosing an installed app and opening
-its Android details page. No running-app count, fake process status or task shelf
-is added to Home. The browser dialog clearly describes a native-only handoff.
+The owner asked for a replacement view because Android's small X and Clear all
+controls could not be selected with the remote. Preserve the quiet header entry
+and give Recents its own simple, opaque dark panel. No thumbnails, cover images,
+film recommendations, process counters or task shelves on Home.
+
+RecentsPanel owns the remote view: a32sp heading, short explanatory line, scrollable
+88dp task rows and shared52dp Open/Close buttons. Use Up/Down between rows and
+Left/Right between each row's actions. Clear all sits in the header and requires
+a modal confirmation, initially focused on Cancel. Cancel/Back restores the Clear
+all trigger. A removed task restores focus to the next available Open button.
+Earlier/Later apps pages the native stack where exposed; Refresh, System view and
+Done provide recovery and exit. Empty/unsupported/refused states remain explicit.
+Pending actions keep their geometry and use a status region; disabled controls
+are visibly dim. The footer remains reachable while the task list scrolls.
+
+The new RemoteRecentsService is separately enabled, preserving the original
+shortcut's permissions. It reads only the recognized SystemUI Recents hierarchy
+while requested, using task-header labels and known action controls. SystemUI
+window-change notifications keep Android7’s cached window references current;
+event contents are ignored. Nothing is
+persisted or uploaded. Native dismissal remains the underlying operation; the
+view does not claim to stop background services. Unknown layouts fail closed.
+The browser's recents.html is a labelled synthetic fixture, not a live task list.
 
 ## Music controls
 

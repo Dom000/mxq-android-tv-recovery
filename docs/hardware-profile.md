@@ -4,7 +4,7 @@ Live collection: 2026-10-24, Africa/Lagos. Initial details from the user's brief
 
 | Item | Finding | Confidence and evidence |
 |---|---|---|
-| Target | `192.168.1.3:5555`, MBOX / rk322x_box | Owner supplied changed IP on 2026-10-24; RK3229 identity rechecked. Earlier sessions used `.4`. |
+| Target | `192.168.1.4:5555`, MBOX / rk322x_box | Owner reconfirmed changed IP on2026-10-25; RK3229 identity rechecked. The intervening session used `.3`. |
 | Root | `uid=0(root) gid=0(root) groups=0(root)` via `su -c id` | Confirmed |
 | SoC identity | CPU hardware RK3229; DT `rockchip,rk3229`; rk322x platform | Confirmed software identity; physical chip marking/stepping unverified |
 | CPU / ABI | Four Cortex-A7 cores (`0xc07`), ARMv7 / armeabi-v7a, 32-bit zygote | Confirmed `/proc/cpuinfo` and ABI properties |

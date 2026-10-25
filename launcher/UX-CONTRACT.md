@@ -12,7 +12,7 @@ relationship with the containing Next.js website.
 | Favorites | MainActivity.editFavorites and AppOrder | SharedPreferences pins | Native multi-choice dialog / hold OK | Host ordering tests; browser dialog checks; native dialog pending |
 | Toast | MainActivity.open and native Toast | This contract | Launch error / favorite result | Desktop status check; native test pending |
 | App settings | MainActivity.appSettings + Android Settings | PackageManager and Android app details | App picker / system settings fallback | APK build; physical Force stop handoff pending |
-| Recent apps | RecentsShortcut + Android SystemUI | Android task switcher | User-enabled / setup / unavailable | Installed 0.4.0; native header observed; setup/handoff/dismissal pending |
+| Recent apps | RecentsPanel, RemoteRecentsService and RecentsTree; RecentsShortcut for system view | Recognized Android SystemUI task controls | Remote panel / system view / setup / unsupported | Installed0.5.8; native D-pad/confirmation passed; owner confirmed Close |
 | Music controls | MusicControls + MainActivity.buildMusicBar | This contract | Hidden / playing / retained for resume | Browser simulation; real player test pending |
 | Wallpaper | WallpaperView, OnlineWallpapers and OnlineWallpaperPolicy | This contract | TVMaze cached / bundled / paused | Native fetch8/display; host policy and browser provider tests |
 
@@ -56,7 +56,11 @@ shows feedback. Favorites are app preferences, with no account/cloud synchroniza
 ACCESS_NETWORK_STATE reads Wi-Fi connection status; INTERNET fetches the requested
 TVMaze artwork. The optional RecentsShortcut accessibility service is enabled only
 by the owner through Android settings. It subscribes to zero events, cannot retrieve
-window content, and invokes only GLOBAL_ACTION_RECENTS when selected. No location,
+window content, and invokes only GLOBAL_ACTION_RECENTS when selected. The separate
+RemoteRecentsService requires explicit owner enablement for screen-content access;
+it reads SystemUI Recents controls only while the requested panel is active. Only SystemUI window-state notifications while idle and control/scroll change
+notifications while requested; their contents are ignored. No global key filter,
+gestures, task history storage or upload. No location,
 root, remote configuration, playback service or system-package changes. Launching another app is initiated by the user's action.
 HomeEntry is shipped disabled. Preview installation and opening require the
 device owner's approval under their original instructions. Enabling HomeEntry
@@ -144,30 +148,64 @@ CPU/RAM use require a separately approved device test. There is no emulator test
 
 ## Recent apps
 
-Recents is a quiet header action shared by Home and Apps. It opens Android's own
-task switcher through an optional AccessibilityService global action. Android owns
-the task list, thumbnails, resume and dismissal controls. No custom launch-history
-list is presented as running processes. AOSP API25 Recents activities are not
-exported; do not attempt privileged activity launches, hidden APIs or key injection.
+The owner requested a replacement after finding the native Close/Clear all controls
+unreachable by D-pad, then said to continue with the optional helper. Recents uses
+RemoteRecentsService if the owner enabled it. Otherwise a native setup dialog
+explains screen-content access and offers Accessibility settings, Use system view
+and Cancel. Choosing system view persists that preference; Settings always offers
+Remote Recent apps setup and Open system Recent apps. Installation never enables
+either service through ADB, root or secure-settings writes.
 
-First selection shows a native explanatory dialog with Accessibility settings,
-App settings and Cancel. The owner must enable Evening Home — Recents in Android
-settings, return Home and select Recents again. Never enable it through ADB/root or
-automatically open Recents on returning from setup. The service is protected by
-BIND_ACCESSIBILITY_SERVICE and requests no accessibility events, window content,
-key filtering, touch exploration or gestures. No task/screen data is collected,
-stored or sent to TVMaze. Disabling/unbinding clears the in-process bridge. A
-false/refused global action shows recovery choices; returning restores trigger focus.
+The original RecentsShortcut remains unchanged: zero events and no window-content
+capability. The new service is protected by BIND_ACCESSIBILITY_SERVICE, with
+canRetrieveWindowContent plus REPORT_VIEW_IDS/RETRIEVE_INTERACTIVE_WINDOWS/INCLUDE_NOT_IMPORTANT_VIEWS; no
+notifications from other packages, event-content inspection, key interception,
+gestures or touch exploration. Android7 needs a nonzero SystemUI window-state
+event mask to refresh stale window/root references; content/scroll notifications
+are enabled only while the panel is requested. A global
+Recents action opens SystemUI, then bounded retries await a recognized tree.
 
-Settings → Recent apps help explains dismissal and setup. Settings → App settings
-shows installed launchable apps, opens the chosen app's Android details page, and
-leaves Force stop/confirmation to Android. This list is never called a running-app
-list. Force stop may interrupt playback/downloads; don't clear app data or stop
-apps automatically. Recent tasks do not prove active processes; dismissing a task
-may leave separate services running. No custom Clear all or force-stop claim.
+Only inspect the top application window, reject a focused system popup or an
+application other than SystemUI, then require known Recents markers. RecentsTree
+limits traversal to512 nodes/24 levels; oversized/unknown trees authorize no
+action. Task text is read only from known title fields; no thumbnail, body text,
+content description, account data or screenshots. Names/nodes stay in memory
+while the panel is open and are released on exit/unbind/destroy. No network, task-data files/preferences or task-text logging in the service.
+Its platform dump emits state labels, counts, focus action names and public
+control IDs for diagnostics.
 
-The browser illustrates the Recents button and explanatory handoff dialog only; it
-never simulates actual task removal. Version0.4.0 was installed after the owner
-supplied the changed IP; HomeEntry/default and the native Recents header action
-were verified. Accessibility setup, native handoff, dismissal, D-pad navigation
-inside SystemUI and app-details availability still require physical validation.
+RecentsPanel is a focusable TYPE_ACCESSIBILITY_OVERLAY using shared TvControls, a16dp outer inset and
+NOT_TOUCH_MODAL so this vendor keeps the underlying application exposed.
+Rows contain task name, Open and Close. These are actual exposed task controls,
+not launch history or a list of running processes. More tasks can be paged through
+Android's scroll action. Refresh re-reads controls. Missing actions are disabled
+or explain unsupported layout; System view remains an escape.
+
+Re-read/revalidate a task's node and label before Open/Close. Never send guessed
+coordinates or root commands. Do not optimistically remove rows; refresh after
+Android handles the action. Refusal/stale controls retain a usable view. Clear
+all confirms the scope and possible unsaved-state loss, with Cancel focused.
+Prefer Android's real Clear all action; otherwise dismiss exposed cards one at a
+time, bounded to32 requests/20s, with Stop, generation cancellation, refusal and
+no-progress checks. Interrupted/partial operations never claim all tasks closed.
+No action is sent merely by opening Home or Recents.
+
+Read on one worker; poll window validity at600ms only while the panel is active; stop and discard nodes
+when another app opens. Timers/retries cancel on exit, interrupt, unbind or destroy.
+Done/Back returns Home, System view reveals the native cards, and confirmation
+Cancel/Back restores the Clear all trigger. Individual Close restores a surviving
+row's safe Open action. The footer is outside the task scroller.
+
+The view removes tasks, not arbitrary background services. Settings → App settings
+opens Android's app details page for explicit Force stop, preserving app data.
+
+Browser recents.html uses explicit sample tasks; verify-recents.cjs checks D-pad
+reachability, Close, confirmation/cancel, refusal, paging, loading, unsupported and
+empty states at16:9 widths. It cannot verify actual task removal. Physical test
+results and remaining limits belong in VERIFICATION.md. UIAutomator can suppress
+accessibility services, so active-panel checks use the service's metadata-only
+dump and real key events rather than UIAutomator.
+
+Native0.5.8 key tests and owner-confirmed Close passed. Do not inject touch taps
+or swipes on this MBOX: its NavBarEventListener can crash the system process.
+The assistant uses key events and metadata-only diagnostics for native checks.

@@ -1,6 +1,12 @@
-# Verification — 2026-10-24
+# Verification — updated 2026-10-25
 
-Current package: **Evening Home 0.3.0 / versionCode3**, installed with a signed
+Current: **Evening Home0.5.8 / versionCode13**, installed on the guarded RK3229.
+The same local signer and HomeEntry/default were retained. The owner enabled the
+separate Remote Recents service and confirmed actual Close with the remote.
+Native D-pad focus and Clear all confirmation/cancellation passed. See the0.5.8
+record below; earlier sections retain historical artifact/test evidence.
+
+Historical0.3 package: **Evening Home 0.3.0 / versionCode3**, installed with a signed
 in-place update on the guarded MBOX. Home resolution, resumed activity and focused
 window still select dev.mxq.home/.HomeEntry. Native screenshot confirms the new
 classic layout, real app icons, focus border, online TVMaze wallpaper, Wi-Fi indication and
@@ -158,3 +164,39 @@ The owner must enable Evening Home — Recents in Accessibility settings, return
 Home and select Recents again. Actual task-switcher handoff, D-pad controls,
 selected-task dismissal and App settings/Force stop handoff remain pending.
 Do not close unrelated tasks or photograph private thumbnails for verification.
+
+## Version0.5.8 — remote view installed and verified
+
+The signed APK is1,094,808 bytes, SHA-256
+`32797653d65632f398a95022b2dfbe65f97a2bb9d0f43a8cd008fd76f8b3c1d1`.
+Signer remains `c9e9d22d527578e42fe577b8b706d8747eb24ec7daeb6b48328dc4d092e076a6`.
+minAPI25/target28 and the two normal network permissions remain unchanged.
+The old accessibility shortcut retains zero events/no content capability; the new
+helper is a separate owner-enabled service with SystemUI-only notifications and
+explicit ID/window/include-container flags (runtime82, content capability1).
+
+Private diagnostics/20261025T005104+0100 records exact hash/signature checks,
+install-r Success and the real key-event sequence that opened the panel. The
+service reported active/panel-visible, windowFocus true and four rows.
+DPAD_RIGHT focused Close; DPAD_UP focused Clear all; OK opened its prompt with
+Cancel focused; Back canceled and restored Clear all focus; DPAD_DOWN restored
+Open. Assertions passed. No task was dismissed by this automation. The owner
+then confirmed that using Close on the selected Settings task removes it.
+
+Initial compatibility problems were resolved with explicit runtime filter flags,
+active-root fallback, ancestry built during traversal instead of nullable native
+parent lookups, background screen reads, a16dp inset/non-modal touch region and
+live task-change refresh. Host tree tests cover these parsing bounds and
+nullable-parent/task-identity cases. All18 Home browser checks and10 remote-view
+fixture checks pass; actual platform actions are not inferred from those fixtures.
+
+Earlier injected touch taps triggered vendor system-process crashes in
+NavBarEventListener.onPointerEvent:83, found in the filtered crash buffer at
+20261025T004125+0100. This explained transient missing activity services and
+framework restarts during the failed tests. No reboot command or firmware edit
+was made. Further native tests use key events only; avoid input tap/swipe on this
+firmware. No private task screenshots, raw task text or account screens were saved.
+
+Actual bulk clearing/Stop on the device, app-specific resume behavior, physical
+mouse/trackpad input and sustained CPU/RAM measurements remain unverified.
+System view and Android app details/Force stop remain explicit alternatives.

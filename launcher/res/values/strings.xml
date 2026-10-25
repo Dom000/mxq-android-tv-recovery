@@ -2,4 +2,6 @@
 <resources>
     <string name="recents_service_name">Evening Home — Recents</string>
     <string name="recents_service_description">Opens Android’s recent apps when you select Recents on Home. No screen content, typing, app history or accessibility events are read or stored. Android owns task dismissal; this shortcut does not force stop apps. Disable here any time.</string>
+    <string name="remote_recents_name">Evening Home — Remote Recents</string>
+    <string name="remote_recents_description">Optional D-pad Recent apps view. When you open it, reads Android SystemUI task names and control buttons to offer Open, Close and confirmed Clear all. Receives SystemUI window-change notifications; their contents are ignored. No screenshots, typing, other app screens or key filtering. Task information stays in memory while the view is open; nothing is saved or uploaded. Android grants screen-content access for this feature. It does not force stop background services. Disable here any time.</string>
 </resources>

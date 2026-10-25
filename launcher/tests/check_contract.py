@@ -47,7 +47,7 @@ for entry in icons:
 print("Six exact installed-app icon resources match their extraction hashes")
 
 # The optional Recents bridge must not acquire screen/event-reading capabilities.
-service = manifest.find("application/service")
+service = next(s for s in manifest.findall("application/service") if s.get(a + "name") == ".RecentsShortcut")
 assert service.get(a + "name") == ".RecentsShortcut"
 assert service.get(a + "permission") == "android.permission.BIND_ACCESSIBILITY_SERVICE"
 config = ET.parse(root / "res/xml/recents_shortcut.xml").getroot()
@@ -58,3 +58,19 @@ bridge = (root / "src/dev/mxq/home/RecentsShortcut.java").read_text()
 for forbidden in ["getRootInActiveWindow", "getWindows(", "dispatchGesture", "Runtime.getRuntime", "ProcessBuilder"]:
     assert forbidden not in bridge, "Recents is a global-action shortcut, not a screen reader or root manager"
 print("Recents binding protection and no screen/event-reading configuration passed")
+remote = next(s for s in manifest.findall("application/service") if s.get(a + "name") == ".RemoteRecentsService")
+assert remote.get(a + "permission") == "android.permission.BIND_ACCESSIBILITY_SERVICE"
+remote_config = ET.parse(root / "res/xml/remote_recents.xml").getroot()
+assert remote_config.get(a + "canRetrieveWindowContent") == "true"
+assert remote_config.get(a + "accessibilityEventTypes") == "typeWindowStateChanged", "Android7 window-change notifications must refresh stale window/root references"
+assert remote_config.get(a + "packageNames") == "com.android.systemui"
+assert remote_config.get(a + "notificationTimeout") == "200"
+assert remote_config.get(a + "accessibilityFlags") == "flagReportViewIds|flagRetrieveInteractiveWindows|flagIncludeNotImportantViews"
+assert set(remote_config.attrib) == {a + "description", a + "accessibilityFeedbackType", a + "canRetrieveWindowContent", a + "accessibilityFlags", a + "accessibilityEventTypes", a + "packageNames", a + "notificationTimeout"}
+remote_code = (root / "src/dev/mxq/home/RemoteRecentsService.java").read_text()
+for forbidden in ["getContentDescription", "dispatchGesture", "onKeyEvent(", "Runtime.getRuntime", "ProcessBuilder", "java.net", "SharedPreferences", "android.util.Log"]:
+    assert forbidden not in remote_code, "Remote task view must stay isolated from apps, storage, network, global keys and root"
+assert "TYPE_APPLICATION" in remote_code and "RecentsTree.SYSTEM_UI" in remote_code
+assert "root == null && panel == null" in remote_code, "active-root compatibility fallback is only allowed before our overlay opens"
+assert 'event.get' not in remote_code, "SystemUI notification contents must never be inspected"
+print("Separate remote service, SystemUI-only notifications, no event-content/key inspection and no task-data network/storage passed")

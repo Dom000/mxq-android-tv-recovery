@@ -1,73 +1,93 @@
-# Recent apps on Evening Home
+# Remote Recent apps
 
-Pressing Home leaves an app's task available for returning later. Version 0.4.0
-adds a **Recents** button to Home and Apps that opens Android's own task switcher.
-This is the actual system task list; the launcher does not invent a list from
-apps you opened through it.
+Evening Home0.5.8 replaces the small Android task-card controls with a simple
+remote-friendly panel. It reads Android's current Recents controls; it does not
+invent a running-app list from launch history. The original system view remains
+available. The owner requested this replacement because the native X and Clear
+all could not be selected reliably with the D-pad.
 
-## One-time setup
+## Setup and controls
 
 1. Select **Recents → Accessibility settings**.
-2. Enable **Evening Home — Recents** in Android's Accessibility settings.
+2. Enable **Evening Home — Remote Recents** (the separate entry with “Remote”).
 3. Return Home and select **Recents** again.
-4. Select a task to return to it, or use Android's dismiss control to remove it.
+4. Use Up/Down between rows, Left/Right between Open and Close, and OK to activate.
 
-The exact card layout, D-pad controls and availability of Clear all depend on
-the firmware. They have not yet been verified on this MBOX. The launcher does not
-add its own Clear all. A remote with an app-switch key may open the same screen
-without enabling this shortcut.
+Clear all sits above the rows and asks for confirmation, initially focused on
+Cancel. Back cancels that prompt and restores Clear all focus. Outside the prompt,
+Back/Done returns Home. Refresh reloads Android's controls; Earlier/Later apps
+pages the native stack where supported. System view reveals the original cards.
+Settings also offers Remote Recent apps setup and Open system Recent apps.
 
-## Actually stopping an app
+The list updates after native tasks load or change. No thumbnails, task-history
+file, fake “running” counts or app shelves are added to Home. Unknown layouts and
+refused/stale controls show recovery instead of sending guessed pointer actions.
 
-A recent task is not proof that an app is still running. Removing a card does not
-guarantee that a music player or another separate service stops.
+## Task dismissal and background services
 
-For the YouTube example: press Home, select Recents and dismiss YouTube's task.
-If you also want to stop its background work, use **Settings → App settings →
-YouTube → Force stop**, then confirm Android's prompt if shown. This can interrupt
-playback/downloads. Saved app data remains; do not select Clear data.
+For the YouTube example: press Home, select Recents and choose Close beside
+YouTube. This removes its task. A recent task does not prove the app is still
+running, and dismissal may leave music or other services alive.
 
-App settings lists installed apps with launchable activities, not running
-processes. Android owns the Force stop control and can restrict it for some apps.
-No apps are automatically stopped when Home opens, when installing the launcher,
-or during testing.
+To stop those too, use **Settings → App settings → YouTube → Force stop** and
+confirm Android's prompt if shown. This can interrupt playback/downloads but
+preserves saved app data. Do not select Clear data for this purpose.
 
-## Permission and implementation
+Clear all confirms possible unsaved-state loss. It uses Android's real bulk action
+when available, otherwise closes exposed cards with a32-request/20-second limit,
+Stop, cancellation and no-progress/refusal guards. Partial operations do not
+claim everything was cleared. No task is dismissed merely by opening the panel.
 
-Android 7 restricts ordinary launchers from listing/removing other apps' tasks.
-The AOSP 7.1.2 SystemUI Recents activities are not exported. Resolving an activity
-through the shell does not establish that a normal application may launch it.
+## Permission and privacy
 
-The optional `RecentsShortcut` service uses the documented accessibility global
-action `GLOBAL_ACTION_RECENTS`. Android requires the owner to enable the service
-in its settings. Installation does not enable it. Disable it in the same settings
-at any time. It subscribes to zero accessibility events, cannot retrieve window
-content, and does not request gestures, key filtering or touch exploration.
-Only Android may bind to the service through `BIND_ACCESSIBILITY_SERVICE`.
-No root commands, screen contents, thumbnails, app history or usage-access data
-are read or retained by the launcher. Nothing about tasks is sent to TVMaze.
+Android7 restricts ordinary launchers from managing other apps' tasks. The
+optional RemoteRecentsService uses an owner-enabled Accessibility service and a
+focusable TYPE_ACCESSIBILITY_OVERLAY. Android grants screen-content access for
+this feature. Installation never enables it through ADB/root or secure settings.
+The owner can disable it at any time. The old RecentsShortcut remains unchanged:
+it only invokes the global Recents action, with zero events and no content access.
 
-If setup is incomplete or Android refuses the action, a native dialog offers
-Accessibility settings, App settings and Cancel. The launcher does not enable
-permissions through ADB or bypass SystemUI's restrictions.
+The new helper receives only SystemUI window-change notifications; content/scroll
+notifications are added while requested to refresh Android's cache. Event contents
+are ignored. Only a recognized SystemUI Recents hierarchy is traversed, bounded
+to512 nodes/24 levels. Task-header labels and known control IDs remain in memory
+while open; nothing is saved or uploaded. No screenshots, body/description text,
+other apps' screens, root commands, global key filtering or gestures. Platform
+diagnostics contain state/counts/focus roles and public control IDs, never names
+or task contents. The service has no network or task-data storage path.
 
-## Verification
+Screen reads run on one worker, with generation guards and bounded startup retries.
+Callbacks are discarded and nodes released on exit/unbind/destroy; returning Home
+cancels the panel. Reads never block the remote's UI thread. Nodes and labels are
+revalidated before actions; rows are refreshed from Android rather than removed
+optimistically. Unavailable actions and firmware limitations remain explicit.
 
-Version 0.4.0 builds and passes host packaging/privacy checks. Browser checks cover
-the button, an explicitly illustrative handoff dialog, focus restoration and header
-fit. The preview cannot show or close real Android tasks.
+## Reference MBOX compatibility and testing
 
-The initial endpoint refused connections because the address had changed. On
-2026-10-24 the owner supplied the new address and the RK3229 identity check passed.
-The exact signed 0.4.0 APK installed with Success using install-r; installed
-versionCode4/versionName0.4.0 and the existing HomeEntry default were read back.
-A Home-key test resumed HomeEntry, and Recents was found in the actual native
-header. A tap was sent to that control, but the setup dialog was not independently
-verified: transport briefly went offline, then Settings was in front. No further
-UI commands were sent. The Accessibility service was not enabled through ADB.
-Actual SystemUI handoff and task dismissal remain pending owner setup; no apps
-were closed or force-stopped for verification.
+The vendor's window API sometimes returns a null root; before displaying the
+panel, the helper can use the documented active-window API with the same package/
+layout checks. A verified root can be refreshed only for its matching window. The adapter avoids unreliable native parent lookups by building ancestry during
+its bounded traversal. The firmware hides the underlying application from a
+full-screen touch-modal overlay; the panel uses a16dp outer margin and a focusable non-modal
+touch region so the native task controls remain exposed. Shared TvControls keeps
+Home and the panel's button/focus style consistent.
 
-Sources: [Android Recents screen](https://developer.android.com/guide/components/activities/recents),
-[AccessibilityService global actions](https://developer.android.com/reference/android/accessibilityservice/AccessibilityService#GLOBAL_ACTION_RECENTS),
-[AOSP 7.1.2 SystemUI manifest](https://android.googlesource.com/platform/frameworks/base/+/android-7.1.2_r39/packages/SystemUI/AndroidManifest.xml).
+**Do not use injected touch taps/swipes for automation on this firmware.** During
+testing, injected touch events triggered a system-process NullPointerException in
+`NavBarEventListener.onPointerEvent` (line83), restarting the Android framework.
+No reboot, firmware edit or system-file write was issued. Testing switched to
+D-pad key events. This is a firmware input-handler defect, not evidence of a
+launcher permission failure. Physical mouse/trackpad coverage is not claimed.
+
+The exact0.5.8 same-signer update installed successfully; default Home was retained.
+Native key tests verified Open/Close focus, Clear all confirmation, Cancel focus,
+Back cancellation and focus restoration with four task rows. The owner confirmed
+that Close removes the chosen Settings task. The assistant did not execute actual
+bulk clearing. Host tests cover tree/package isolation, nullable parents, bounds,
+label sanitization, task-change detection and separate service/privacy settings.
+Ten browser checks use synthetic tasks; they are not native task-removal evidence.
+
+Sources: [Android Recents](https://developer.android.com/guide/components/activities/recents),
+[AccessibilityService](https://developer.android.com/reference/android/accessibilityservice/AccessibilityService),
+[AccessibilityNodeInfo actions](https://developer.android.com/reference/android/view/accessibility/AccessibilityNodeInfo#performAction(int)),
+[AOSP7.1.2 Recents activity](https://android.googlesource.com/platform/frameworks/base/+/android-7.1.2_r39/packages/SystemUI/src/com/android/systemui/recents/RecentsActivity.java).

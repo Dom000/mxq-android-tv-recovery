@@ -11,12 +11,13 @@
   ],
   "ownership": {
     "Favorites": "native",
-    "Recent apps": "Android SystemUI via optional RecentsShortcut",
+    "Recent apps": "RecentsPanel + RemoteRecentsService + RecentsTree; Android SystemUI actions",
     "App settings": "Android Settings via MainActivity.appSettings"
   },
   "evidence": {
     "hostChecks": "tests/check_contract.py",
-    "nativeLimits": "UX-CONTRACT.md"
+    "nativeLimits": "UX-CONTRACT.md",
+    "remoteView": "preview/recents-verification.json"
   },
   "nativeCapabilities": [
     "Navigation",

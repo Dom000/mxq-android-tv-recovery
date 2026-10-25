@@ -363,3 +363,17 @@ installed/opened; service/playback/transport testing remains pending. Evening
 Home0.3/default and TVMaze8-image cache remain in place. No Wi-Fi setting change,
 root install, firmware write or reboot. Updated docs/music-app-installation.md
 with exact results and per-split hashes. Earlier pending statements are historical.
+
+## 2026-10-25 — remote-friendly Recents complete
+
+The owner requested a simpler replacement for the native X/Clear all controls.
+Evening Home0.5.8 now has a separately enabled Accessibility-backed task panel
+with Open/Close, confirmed Clear all, paging and System view. No root or firmware
+modification. Current owner-confirmed endpoint is192.168.1.4:5555; identity guard
+passed. Native key focus/confirmation/cancel tests passed, and the owner confirmed
+actual Close. See launcher/VERIFICATION.md and docs/recent-apps.md for the exact
+artifact, privacy boundary and vendor compatibility work.
+
+Injected pointer tests hit a vendor NavBarEventListener NullPointerException and
+framework restarts. They were stopped; further automation uses D-pad keys only.
+No reboot command/system-file edit or app-data clearing was issued.
