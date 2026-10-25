@@ -1,8 +1,9 @@
 # Verification — updated 2026-10-25
 
-Current: **Evening Home0.5.8 / versionCode13**, installed on the guarded RK3229.
+Current: **Evening Home0.6.0 / versionCode14**, installed on the guarded RK3229.
 The same local signer and HomeEntry/default were retained. The owner enabled the
-separate Remote Recents service and confirmed actual Close with the remote.
+separate Remote Recents service and confirmed actual Close in0.5.8; the0.6.0
+icon, focus and confirmation checks are recorded below.
 Native D-pad focus and Clear all confirmation/cancellation passed. See the0.5.8
 record below; earlier sections retain historical artifact/test evidence.
 
@@ -200,3 +201,22 @@ firmware. No private task screenshots, raw task text or account screens were sav
 Actual bulk clearing/Stop on the device, app-specific resume behavior, physical
 mouse/trackpad input and sustained CPU/RAM measurements remain unverified.
 System view and Android app details/Force stop remain explicit alternatives.
+
+## Version0.6.0 — classic rows and installed icons
+
+APK: 1094808 bytes; SHA-256
+`b893eb8f23bc9d354380381ec080f99d4f2a80f445f896a9a4b101e7ff5f9e3a`. Same signer, minAPI25, target28, permissions
+and HomeEntry/default. Private diagnostics/20261025T011824+0100 records signed
+install-r Success, versionCode14/versionName0.6.0/default readback, and native
+key-only checks. Three live rows rendered two original icons and one neutral
+fallback; all icon views are decorative/non-focusable. DPAD_RIGHT reached Close,
+UP reached Clear all, OK focused confirmation Cancel, and Back restored Clear all.
+The test returned focus to Open and closed no task.
+
+Host TaskIconIndex tests cover exact aliases, duplicate entries, ambiguous names,
+unknown/document titles and Unicode normalization. Existing tree, network-policy,
+packaging and opt-in checks pass. Eight extracted icon files match provenance
+hashes; the two new records are the installed Spotify/Audiomack resources.
+Twelve Recents browser checks pass, including original-icon loading, flat/no-copy
+layout, neutral fallback without extra focus stops and the existing action states.
+All18 Home browser checks also pass. Browser images are synthetic fixtures.

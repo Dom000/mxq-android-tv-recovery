@@ -15,6 +15,9 @@ final class TvControls {
         return Math.round(value * context.getResources().getDisplayMetrics().density);
     }
     static Button button(Context context, String label, Runnable click) {
+        return button(context, label, click, false);
+    }
+    static Button button(Context context, String label, Runnable click, boolean quiet) {
         Button button = new Button(context) {
             @Override public void setEnabled(boolean enabled) { super.setEnabled(enabled); setAlpha(enabled ? 1f : .45f); }
         };
@@ -26,8 +29,8 @@ final class TvControls {
         button.setSingleLine(true); button.setEllipsize(TextUtils.TruncateAt.END); button.setMaxWidth(dp(context, 410));
         button.setId(View.generateViewId()); button.setFocusable(true);
         button.setPointerIcon(PointerIcon.getSystemIcon(context, PointerIcon.TYPE_HAND));
-        button.setBackground(background(context, false, false));
-        button.setOnFocusChangeListener((view, focused) -> view.setBackground(background(context, focused, false)));
+        button.setBackground(background(context, false, false, quiet));
+        button.setOnFocusChangeListener((view, focused) -> view.setBackground(background(context, focused, false, quiet)));
         button.setOnClickListener(view -> click.run()); return button;
     }
     static GradientDrawable surface(Context context, boolean focused, boolean selected) {
@@ -37,11 +40,16 @@ final class TvControls {
         return drawable;
     }
     static StateListDrawable background(Context context, boolean focused, boolean selected) {
+        return background(context, focused, selected, false);
+    }
+    private static StateListDrawable background(Context context, boolean focused, boolean selected, boolean quiet) {
         StateListDrawable states = new StateListDrawable();
         GradientDrawable pressed = surface(context, focused, selected); pressed.setColor(0xff466278);
         states.addState(new int[] {android.R.attr.state_pressed}, pressed);
         GradientDrawable hovered = surface(context, focused, selected); hovered.setColor(0xff2a4052);
         states.addState(new int[] {android.R.attr.state_hovered}, hovered);
-        states.addState(new int[] {}, surface(context, focused, selected)); return states;
+        GradientDrawable rest = surface(context, focused, selected);
+        if (quiet && !focused && !selected) { rest.setColor(0x00000000); rest.setStroke(0, 0); }
+        states.addState(new int[] {}, rest); return states;
     }
 }

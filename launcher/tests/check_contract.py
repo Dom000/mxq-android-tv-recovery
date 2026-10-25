@@ -41,10 +41,11 @@ with zipfile.ZipFile(root / "build/EveningHome-preview.apk") as apk:
         assert hashlib.sha256(data).hexdigest() == entry["sha256"], "APK contains a stale asset"
 print("Built APK includes DEX, the current catalogue and four exact publisher images")
 icons = json.loads((root / "preview/icons/catalog.json").read_text())
-assert len(icons) == 6
+assert len(icons) == 8
 for entry in icons:
     assert hashlib.sha256((root / "preview/icons" / entry["file"]).read_bytes()).hexdigest() == entry["sha256"]
-print("Six exact installed-app icon resources match their extraction hashes")
+assert {"Spotify", "Audiomack"} <= {entry["label"] for entry in icons}
+print("Eight exact installed-app icon resources match their extraction hashes")
 
 # The optional Recents bridge must not acquire screen/event-reading capabilities.
 service = next(s for s in manifest.findall("application/service") if s.get(a + "name") == ".RecentsShortcut")

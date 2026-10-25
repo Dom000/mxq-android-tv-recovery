@@ -24,6 +24,7 @@ PACKAGES = {
     "YouTube": "com.google.android.youtube.tv", "Brave": "com.brave.browser",
     "KD Player": "org.com.kdplayer", "Netflix": "com.netflix.mediaclient",
     "Play Store": "com.android.vending", "Aptoide TV": "cm.aptoidetv.pt",
+    "Spotify": "com.spotify.tv.android", "Audiomack": "com.audiomack",
 }
 
 

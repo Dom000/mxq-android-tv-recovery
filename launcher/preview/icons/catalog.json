@@ -46,5 +46,21 @@
     "resource": "res/drawable-xxxhdpi-v4/ic_launcher_large.png",
     "sha256": "036c93753a84303022b8f0d4f4a44217d7e03db706378fa820efa5886c3e00f5",
     "bytes": 24595
+  },
+  {
+    "label": "Spotify",
+    "package": "com.spotify.tv.android",
+    "file": "com.spotify.tv.android.png",
+    "resource": "res/mipmap-mdpi-v4/spotify_icon.png",
+    "sha256": "f492007432754375e9c2b5b6daa1d48b9b01dc16b67d20bb8ea7377b19dbb5cc",
+    "bytes": 749
+  },
+  {
+    "label": "Audiomack",
+    "package": "com.audiomack",
+    "file": "com.audiomack.png",
+    "resource": "res/mipmap-mdpi-v4/ic_launcher.png",
+    "sha256": "6d08a059651e59c21e1a394b37f2268b68e193f2ec3c59d366377d12ce007454",
+    "bytes": 1029
   }
 ]

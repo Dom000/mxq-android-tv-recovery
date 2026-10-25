@@ -21,6 +21,7 @@ public final class RemoteRecentsService extends AccessibilityService {
     private static volatile RemoteRecentsService connected;
     private final Handler handler = new Handler();
     private final ExecutorService reader = Executors.newSingleThreadExecutor();
+    private final InstalledTaskIcons icons = new InstalledTaskIcons(this);
     private RecentsPanel panel;
     private Snapshot shown;
     private volatile int generation;
@@ -83,7 +84,7 @@ public final class RemoteRecentsService extends AccessibilityService {
             if (!active || token != generation) return;
             readAsync(snapshot -> {
             if (snapshot != null) {
-                panel = new RecentsPanel(this, new RecentsPanel.Actions() {
+                panel = new RecentsPanel(this, icons, new RecentsPanel.Actions() {
                     public void open(int index) { act(index, false); }
                     public void close(int index) { act(index, true); }
                     public void clear() { startClear(); }
@@ -237,7 +238,10 @@ public final class RemoteRecentsService extends AccessibilityService {
         handler.removeCallbacksAndMessages(null);
         if (panel != null) { panel.hide(); panel = null; }
         if (shown != null) { shown.close(); shown = null; }
-        reader.execute(() -> { if (trustedRoot != null) { trustedRoot.recycle(); trustedRoot = null; } });
+        reader.execute(() -> {
+            if (trustedRoot != null) { trustedRoot.recycle(); trustedRoot = null; }
+            icons.clear();
+        });
         watchChanges(false);
         if (home) try { performGlobalAction(GLOBAL_ACTION_HOME); } catch (RuntimeException ignored) { }
     }
@@ -321,6 +325,7 @@ public final class RemoteRecentsService extends AccessibilityService {
                 snapshot.close(); return null;
             }
             probe = "ready";
+            icons.prepare(snapshot.tree.cards);
             if (trustedRoot != null) trustedRoot.recycle();
             trustedRoot = AccessibilityNodeInfo.obtain(root);
             return snapshot;

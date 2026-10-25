@@ -506,7 +506,7 @@ public final class MainActivity extends Activity {
                     .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK), "The original Home app isn't available.");
                 if (index == 3) {
                     activeDialog = new AlertDialog.Builder(this).setTitle("Evening Home")
-                        .setMessage("Version 0.5.8\nA quieter home for your TV.\n\nMusic controls use Android's current media player. Playback and Next support depend on that app.\n\nOnline background data: TVMaze (CC BY-SA). Image rights remain with their owners.\nBundled artwork: Universal Pictures, Marvel Studios, Sony Pictures and DreamWorks Animation.")
+                        .setMessage("Version 0.6.0\nA quieter home for your TV.\n\nMusic controls use Android's current media player. Playback and Next support depend on that app.\n\nOnline background data: TVMaze (CC BY-SA). Image rights remain with their owners.\nBundled artwork: Universal Pictures, Marvel Studios, Sony Pictures and DreamWorks Animation.")
                         .setNeutralButton("TVMaze", (about, which) -> open(new Intent(Intent.ACTION_VIEW,
                             Uri.parse("https://www.tvmaze.com/")), "A browser isn't available."))
                         .setPositiveButton("Done", null).create(); activeDialog.show();

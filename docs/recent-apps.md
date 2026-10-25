@@ -1,7 +1,8 @@
 # Remote Recent apps
 
-Evening Home0.5.8 replaces the small Android task-card controls with a simple
-remote-friendly panel. It reads Android's current Recents controls; it does not
+Evening Home0.6.0 replaces the small Android task-card controls with a simple
+remote-friendly panel with original app icons and flat classic rows. It reads
+Android's current Recents controls; it does not
 invent a running-app list from launch history. The original system view remains
 available. The owner requested this replacement because the native X and Clear
 all could not be selected reliably with the D-pad.
@@ -19,7 +20,10 @@ Back/Done returns Home. Refresh reloads Android's controls; Earlier/Later apps
 pages the native stack where supported. System view reveals the original cards.
 Settings also offers Remote Recent apps setup and Open system Recent apps.
 
-The list updates after native tasks load or change. No thumbnails, task-history
+The list updates after native tasks load or change. Installed icons are loaded
+on the reader worker and matched through exact application/launcher labels.
+Unknown or ambiguous names use a neutral glyph; these matches never change
+task actions. The artwork cache is limited to24 icons32–96px and cleared on exit. No thumbnails, task-history
 file, fake “running” counts or app shelves are added to Home. Unknown layouts and
 refused/stale controls show recovery instead of sending guessed pointer actions.
 
@@ -85,9 +89,14 @@ Back cancellation and focus restoration with four task rows. The owner confirmed
 that Close removes the chosen Settings task. The assistant did not execute actual
 bulk clearing. Host tests cover tree/package isolation, nullable parents, bounds,
 label sanitization, task-change detection and separate service/privacy settings.
-Ten browser checks use synthetic tasks; they are not native task-removal evidence.
+Twelve browser checks use synthetic tasks; they are not native task-removal evidence.
 
 Sources: [Android Recents](https://developer.android.com/guide/components/activities/recents),
 [AccessibilityService](https://developer.android.com/reference/android/accessibilityservice/AccessibilityService),
 [AccessibilityNodeInfo actions](https://developer.android.com/reference/android/view/accessibility/AccessibilityNodeInfo#performAction(int)),
 [AOSP7.1.2 Recents activity](https://android.googlesource.com/platform/frameworks/base/+/android-7.1.2_r39/packages/SystemUI/src/com/android/systemui/recents/RecentsActivity.java).
+
+The0.6.0 visual update was installed and verified separately: three live rows
+showed two original installed icons and one neutral fallback. Native D-pad Close,
+Clear all, confirmation Cancel and Back restoration passed again. No task was
+closed during these cosmetic-update checks.

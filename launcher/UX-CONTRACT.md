@@ -209,3 +209,27 @@ dump and real key events rather than UIAutomator.
 Native0.5.8 key tests and owner-confirmed Close passed. Do not inject touch taps
 or swipes on this MBOX: its NavBarEventListener can crash the system process.
 The assistant uses key events and metadata-only diagnostics for native checks.
+
+## Classic task icons — version0.6.0
+
+The owner requested original app icons and a classic treatment. InstalledTaskIcons
+and TaskIconIndex own decorative artwork lookup; task identity and all actions
+remain owned by SystemUI nodes. Query installed application and TV/regular launcher
+labels on the reader worker, then match exact normalized aliases only. Duplicate
+aliases from one package are fine; different packages with the same name, unknown
+titles and document titles fall back to a neutral icon. This is a display-label
+match, not a claim that SystemUI exposed the task's package. No fuzzy matching.
+
+Load original PackageManager application drawables and preserve aspect/shape.
+Publish an immutable bitmap map for the UI; no package or image lookup on the
+UI thread. Limit cached artwork to24 icons sampled to32–96px; clear the in-memory
+index/cache on exit. Icon failure must keep Open/Close usable. Nothing about
+tasks or installed apps is sent over the network or persisted. Icons are not
+focusable or separately announced; labels/actions provide accessible names.
+
+Classic rows are flat96dp bands with48dp icons,20dp icon/name spacing and1dp
+muted dividers. Shared TvControls adds a quiet variant, preserving Home's existing
+variant. Remove the introductory paragraph; retain stable inline error/status
+space and all existing footer recovery actions. D-pad and confirmation behavior
+are unchanged. Native0.6.0 verified two original icons and one neutral fallback
+in three rows, plus Close/Clear all/Cancel focus and Back restoration.

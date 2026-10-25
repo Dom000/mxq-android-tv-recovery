@@ -156,3 +156,18 @@ The browser's separate check is `node preview/verify-recents.cjs` with the same
 Playwright/Chromium environment used by `preview/verify.cjs`. It covers navigation,
 close fixtures, confirmation, refusal, paging, loading, unsupported/empty states
 and responsive16:9 geometry. It does not manipulate Android tasks.
+
+## Version0.6.0 — original icons and classic rows
+
+Installed on2026-10-25, retaining default Home and the already-enabled helper.
+Recents now has48dp original app icons, flat rows with subtle dividers and quiet
+Open/Close/toolbar actions. The explanatory paragraph was removed. D-pad focus
+and Clear all confirmation/cancellation were rechecked on the MBOX.
+
+InstalledTaskIcons loads PackageManager artwork off the UI thread. Task labels
+are matched against exact normalized installed application/launcher labels;
+unknown or ambiguous labels receive a neutral glyph. This lookup only decorates
+the row; native task-node identity still controls Open/Close. At most24 rendered
+icons32–96px are cached in memory, then cleared on exit. No new permission or
+network request. The browser preview now includes the exact installed Spotify
+and Audiomack icons alongside the existing six extracted resources.

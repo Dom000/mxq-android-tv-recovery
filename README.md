@@ -25,7 +25,7 @@ existing firmware; changing the launcher does not change Android compatibility.
 - Daily artwork refresh, an offline cache, 15-second rotation and gentle fades.
 - Bundled movie artwork, manual Next scene and a slideshow pause option.
 - Wi-Fi connection indicator, clock and device-settings shortcuts.
-- Remote-friendly Recents with large Open/Close buttons and confirmed Clear all.
+- Classic Recents with original installed-app icons, flat rows, Open/Close and confirmed Clear all.
 - App settings access for Android’s Force stop control.
 - Compact play/pause and Next controls for Android's current media receiver.
 
@@ -42,10 +42,11 @@ The reference device is an MXQ Pro 4K / MBOX with Rockchip RK3229, ARMv7, approx
 1 GB RAM and SSV6158 Wi-Fi. Its API level and fingerprint identify **Android 7.1.2 /
 API 25**, despite a higher version string in its settings.
 
-Evening Home **0.5.8** is installed and selected as default on the reference MBOX.
-The redesigned Recents panel was verified on 2026-10-25 with real D-pad keys: Open/Close
-focus, Clear all confirmation, Back cancellation and focus restoration. The owner
-confirmed that Close removes the selected task. The original launcher remains installed.
+Evening Home **0.6.0** is installed and selected as default on the reference MBOX.
+Original task icons and the classic Recents layout were verified on2026-10-25
+with real D-pad keys: Open/Close
+focus, Clear all confirmation, Back cancellation and focus restoration. The owner previously confirmed that Close removes the selected task.
+Task names without a unique installed-app match use a neutral icon. The original launcher remains installed.
 Eight TVMaze backgrounds were previously fetched and native display observed.
 
 Spotify TV 1.81.55 and Audiomack 6.59.1 were separately installed and opened during

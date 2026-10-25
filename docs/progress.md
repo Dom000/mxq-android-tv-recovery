@@ -377,3 +377,11 @@ artifact, privacy boundary and vendor compatibility work.
 Injected pointer tests hit a vendor NavBarEventListener NullPointerException and
 framework restarts. They were stopped; further automation uses D-pad keys only.
 No reboot command/system-file edit or app-data clearing was issued.
+
+## 2026-10-25 — classic Recents and original icons
+
+Version0.6.0 installed with the same signer and retained default Home. Added
+PackageManager task icons through exact installed-label aliases, neutral fallback
+for unknown/ambiguous names, flat dividers, quiet buttons and less copy. Native
+icon counts and D-pad/confirmation checks passed. No new permission, task-data
+upload, root command or pointer injection. See launcher/VERIFICATION.md.

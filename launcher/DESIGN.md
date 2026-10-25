@@ -165,8 +165,8 @@ the system format. Background changes never move focus or other controls.
 The fallback landscape and product icon are original vector artwork. Movie
 wallpapers are real publisher images fetched from official studio sites, with
 provenance, credits and hashes in assets/wallpapers/catalog.json. Actual app icons
-come from installed apps. The browser preview now uses the six favorite-app
-icon resources extracted read-only from their installed APKs; other catalogue
+come from installed apps. The browser preview uses eight icon resources
+extracted read-only from installed APKs, including Spotify and Audiomack; other catalogue
 behavior remains illustrative. Reduced-motion mode freezes automatic rotation. Content names
 actions directly: Apps, Edit, Save favorites, Next scene,
 Pause wallpaper slideshow.
@@ -205,8 +205,11 @@ controls could not be selected with the remote. Preserve the quiet header entry
 and give Recents its own simple, opaque dark panel. No thumbnails, cover images,
 film recommendations, process counters or task shelves on Home.
 
-RecentsPanel owns the remote view: a32sp heading, short explanatory line, scrollable
-88dp task rows and shared52dp Open/Close buttons. Use Up/Down between rows and
+RecentsPanel owns the remote view: a32sp heading, a16dp gap, scrollable96dp
+flat task rows with a1dp divider,48dp original app icons,20sp medium labels and
+shared52dp Open/Close buttons. The user requested a classic look: no filled row
+boxes or idle button boxes, no instruction paragraph. Quiet actions remain
+transparent until focus/hover/press; focus retains the existing3dp border. Use Up/Down between rows and
 Left/Right between each row's actions. Clear all sits in the header and requires
 a modal confirmation, initially focused on Cancel. Cancel/Back restores the Clear
 all trigger. A removed task restores focus to the next available Open button.
@@ -222,7 +225,17 @@ window-change notifications keep Android7’s cached window references current;
 event contents are ignored. Nothing is
 persisted or uploaded. Native dismissal remains the underlying operation; the
 view does not claim to stop background services. Unknown layouts fail closed.
+InstalledTaskIcons prepares publisher artwork from PackageManager on the existing
+reader worker. TaskIconIndex matches exact normalized application/launcher labels;
+unmatched or ambiguous names use a neutral four-square glyph. Never choose a
+random package, fetch brand images online or change a task action based on an
+icon match. Icons are decorative, non-focusable and keep their publishers' shapes.
+Cache at most24 rendered icons, each32–96px, clear on exit. The source labels,
+package mapping and bitmaps stay in memory only.
+
 The browser's recents.html is a labelled synthetic fixture, not a live task list.
+Its original YouTube/Spotify/Audiomack icons were extracted from the installed
+packages; missing artwork has the same reserved-size neutral fallback.
 
 ## Music controls
 

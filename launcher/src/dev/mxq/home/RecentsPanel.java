@@ -3,6 +3,11 @@ package dev.mxq.home;
 import android.content.Context;
 import android.graphics.PixelFormat;
 import android.graphics.Typeface;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.ColorFilter;
+import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
 import android.view.ContextThemeWrapper;
 import android.view.Gravity;
@@ -12,6 +17,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import java.util.ArrayList;
@@ -26,6 +32,7 @@ final class RecentsPanel {
     private final Context context;
     private final WindowManager windows;
     private final Actions actions;
+    private final InstalledTaskIcons icons;
     private final FrameLayout stage;
     private final List<Button> buttons = new ArrayList<>();
     private RecentsTree.Result last;
@@ -34,10 +41,12 @@ final class RecentsPanel {
     private boolean attached, confirming, clearing;
     private Button clearAction;
     private TextView statusText;
+    private int originalIcons, fallbackIcons;
 
-    RecentsPanel(Context service, Actions callbacks) {
+    RecentsPanel(Context service, InstalledTaskIcons artwork, Actions callbacks) {
         context = new ContextThemeWrapper(service, android.R.style.Theme_Material_NoActionBar);
         windows = (WindowManager)service.getSystemService(Context.WINDOW_SERVICE); actions = callbacks;
+        icons = artwork;
         stage = new FrameLayout(context) {
             @Override public boolean dispatchKeyEvent(KeyEvent event) {
                 if (event.getKeyCode() == KeyEvent.KEYCODE_BACK) {
@@ -82,7 +91,8 @@ final class RecentsPanel {
             "Refresh", "System view", "Done", "Stop").contains(role)) role = "none";
         return "REMOTE_PANEL attached=" + attached + " windowFocus=" + stage.hasWindowFocus()
             + " confirming=" + confirming + " clearing=" + clearing + " focus=" + role
-            + " rows=" + (last == null ? 0 : last.cards.size());
+            + " rows=" + (last == null ? 0 : last.cards.size())
+            + " icons=" + originalIcons + " fallbackIcons=" + fallbackIcons;
     }
     boolean canRefresh() { return !confirming && !clearing; }
     int focusedRow() {
@@ -91,6 +101,7 @@ final class RecentsPanel {
     }
     void render(RecentsTree.Result data, String status, int focus) {
         last = data; message = status; restore = focus; confirming = false; clearing = false;
+        originalIcons = 0; fallbackIcons = 0;
         LinearLayout page = page();
         LinearLayout header = row(); header.setGravity(Gravity.CENTER_VERTICAL);
         header.addView(text("Recent apps", 32, Tokens.TEXT), new LinearLayout.LayoutParams(0, dp(64), 1));
@@ -98,8 +109,7 @@ final class RecentsPanel {
         clearAction = clear;
         clear.setEnabled(!data.cards.isEmpty() || data.clear != null);
         header.addView(clear, size(132, 52)); page.addView(header);
-        TextView note = text("Tasks you can return to. Background services may keep running.", 17, Tokens.MUTED);
-        page.addView(note, new LinearLayout.LayoutParams(-1, dp(40)));
+        page.addView(new View(context), new LinearLayout.LayoutParams(-1, dp(16)));
 
         ScrollView scroll = new ScrollView(context); scroll.setFillViewport(true);
         LinearLayout list = new LinearLayout(context); list.setOrientation(LinearLayout.VERTICAL);
@@ -107,8 +117,17 @@ final class RecentsPanel {
         for (int i = 0; i < data.cards.size(); i++) {
             final int index = i; RecentsTree.Card card = data.cards.get(i);
             LinearLayout line = row(); line.setGravity(Gravity.CENTER_VERTICAL);
-            line.setBackground(TvControls.surface(context, false, false)); line.setPadding(dp(20), dp(10), dp(12), dp(10));
+            line.setPadding(dp(16), dp(12), dp(12), dp(12));
+            ImageView icon = new ImageView(context); icon.setScaleType(ImageView.ScaleType.FIT_CENTER);
+            icon.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
+            icon.setFocusable(false); icon.setClickable(false);
+            Bitmap bitmap = icons.get(card.label);
+            if (bitmap != null) { icon.setImageBitmap(bitmap); originalIcons++; }
+            else { icon.setImageDrawable(new AppGlyph()); fallbackIcons++; }
+            LinearLayout.LayoutParams image = new LinearLayout.LayoutParams(dp(48), dp(48));
+            image.rightMargin = dp(20); line.addView(icon, image);
             TextView label = text(card.label, 20, Tokens.TEXT); label.setMaxLines(2); label.setEllipsize(TextUtils.TruncateAt.END);
+            label.setTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL));
             line.addView(label, new LinearLayout.LayoutParams(0, -1, 1));
             Button open = button("Open", () -> actions.open(index)); open.setContentDescription("Open " + card.label);
             open.setEnabled(card.open != null); line.addView(open, size(112, 52)); opens.add(open);
@@ -116,7 +135,9 @@ final class RecentsPanel {
             line.addView(close, size(112, 52)); closes.add(close);
             open.setNextFocusRightId(close.getId()); close.setNextFocusLeftId(open.getId());
             open.setNextFocusLeftId(open.getId()); close.setNextFocusRightId(close.getId());
-            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(-1, dp(88)); lp.bottomMargin = dp(12); list.addView(line, lp);
+            list.addView(line, new LinearLayout.LayoutParams(-1, dp(96)));
+            View divider = new View(context); divider.setBackgroundColor((Tokens.MUTED & 0xffffff) | 0x33000000);
+            list.addView(divider, new LinearLayout.LayoutParams(-1, dp(1)));
         }
         if (data.cards.isEmpty()) list.addView(text(data.hasTitles
             ? "This firmware doesn't expose task controls. Choose System view."
@@ -184,7 +205,7 @@ final class RecentsPanel {
         stage.addView(page, new FrameLayout.LayoutParams(-1, -1)); return page;
     }
     private Button button(String label, Runnable click) {
-        Button button = TvControls.button(context, label, click); button.setFocusableInTouchMode(true);
+        Button button = TvControls.button(context, label, click, true); button.setFocusableInTouchMode(true);
         buttons.add(button); return button;
     }
     private TextView text(String value, float size, int color) {
@@ -196,4 +217,18 @@ final class RecentsPanel {
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(dp(width), dp(height)); lp.rightMargin = dp(12); return lp;
     }
     private int dp(float value) { return TvControls.dp(context, value); }
+    private static final class AppGlyph extends Drawable {
+        private final Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        AppGlyph() { paint.setColor(Tokens.MUTED); paint.setAlpha(150); }
+        @Override public void draw(Canvas canvas) {
+            float unit = getBounds().width() / 8f, x = getBounds().left + unit, y = getBounds().top + unit;
+            for (int row = 0; row < 2; row++) for (int column = 0; column < 2; column++) {
+                float left = x + column * unit * 3.5f, top = y + row * unit * 3.5f;
+                canvas.drawRoundRect(left, top, left + unit * 2.5f, top + unit * 2.5f, unit * .5f, unit * .5f, paint);
+            }
+        }
+        @Override public void setAlpha(int alpha) { paint.setAlpha(alpha); }
+        @Override public void setColorFilter(ColorFilter filter) { paint.setColorFilter(filter); }
+        @Override public int getOpacity() { return PixelFormat.TRANSLUCENT; }
+    }
 }

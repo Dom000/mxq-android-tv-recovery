@@ -5,5 +5,7 @@ window.APP_ICONS = {
   "KD Player": "icons/org.com.kdplayer.png",
   "Netflix": "icons/com.netflix.mediaclient.png",
   "Play Store": "icons/com.android.vending.png",
-  "Aptoide TV": "icons/cm.aptoidetv.pt.png"
+  "Aptoide TV": "icons/cm.aptoidetv.pt.png",
+  "Spotify": "icons/com.spotify.tv.android.png",
+  "Audiomack": "icons/com.audiomack.png"
 };
